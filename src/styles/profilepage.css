@@ -32,5 +32,8 @@
 .vacationcontainer {
     padding: 20px;
     margin-top: 400px;
-    border: 1px solid black;
+    margin-bottom: 30px;
+    margin-left: 90px;
+    margin-right: 150px;
+    border: 1px solid blue;
 }
