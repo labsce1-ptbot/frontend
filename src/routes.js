@@ -65,14 +65,14 @@ const dashboardRoutes = [
     component: Icons,
     layout: "/admin"
   },
-  {
-    path: "/maps",
-    name: "Maps",
-    rtlName: "خرائط",
-    icon: LocationOn,
-    component: Maps,
-    layout: "/admin"
-  },
+  // {
+  //   path: "/maps",
+  //   name: "Maps",
+  //   rtlName: "خرائط",
+  //   icon: LocationOn,
+  //   component: Maps,
+  //   layout: "/admin"
+  // },
   {
     path: "/notifications",
     name: "Notifications",
@@ -80,39 +80,39 @@ const dashboardRoutes = [
     icon: Notifications,
     component: NotificationsPage,
     layout: "/admin"
-  },
-  {
-    path: "/upgrade-to-pro",
-    name: "Upgrade To PRO",
-    rtlName: "التطور للاحترافية",
-    icon: Unarchive,
-    component: UpgradeToPro,
-    layout: "/admin"
-  },
-  {
-    path: "/rtl-page",
-    name: "RTL Support",
-    rtlName: "پشتیبانی از راست به چپ",
-    icon: Language,
-    component: RTLPage,
-    layout: "/rtl"
-  },
-  {
-    path: "/login-page",
-    name: "Login Page",
-    rtlName: "پشتیبانی از راست به چپ",
-    icon: Login,
-    component: LoginPage,
-    layout: "/auth"
-  },
-  {
-    path: "/register-page",
-    name: "Register Page",
-    rtlName: "پشتیبانی از راست به چپ",
-    icon: Register,
-    component: RegisterPage,
-    layout: "/auth"
   }
+  // {
+  //   path: "/upgrade-to-pro",
+  //   name: "Upgrade To PRO",
+  //   rtlName: "التطور للاحترافية",
+  //   icon: Unarchive,
+  //   component: UpgradeToPro,
+  //   layout: "/admin"
+  // },
+  // {
+  //   path: "/rtl-page",
+  //   name: "RTL Support",
+  //   rtlName: "پشتیبانی از راست به چپ",
+  //   icon: Language,
+  //   component: RTLPage,
+  //   layout: "/rtl"
+  // },
+  // {
+  //   path: "/login-page",
+  //   name: "Login Page",
+  //   rtlName: "پشتیبانی از راست به چپ",
+  //   icon: Login,
+  //   component: LoginPage,
+  //   layout: "/auth"
+  // },
+  // {
+  //   path: "/register-page",
+  //   name: "Register Page",
+  //   rtlName: "پشتیبانی از راست به چپ",
+  //   icon: Register,
+  //   component: RegisterPage,
+  //   layout: "/auth"
+  // }
 ];
 
 export default dashboardRoutes;
