@@ -1,17 +1,34 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-// import App from './App';
-import ProfilePage from './components/ProfilePage'
-import 'bootstrap/dist/css/bootstrap.css';
-import * as serviceWorker from './serviceWorker';
+import React from "react";
+import ReactDOM from "react-dom";
+import { createBrowserHistory } from "history";
+import { Router, Route, Switch, Redirect } from "react-router-dom";
 
-// import SignUp from './components/SignUp';
-// import SignIn from './components/SignIn';
+import App from "./App";
 
-// ReactDOM.render(<App />, document.getElementById('root'));
-ReactDOM.render(<ProfilePage />, document.getElementById('root'));
+// core components
+// import Admin from "./layouts/Admin.jsx";
+// import Auth from "./layouts/Auth.jsx";
+// import RTL from "./layouts/RTL.jsx";
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+import "./assets/css/material-dashboard-react.css?v=1.6.0";
+
+const hist = createBrowserHistory();
+
+// ReactDOM.render(
+//   <Router history={hist}>
+//     <Switch>
+//       <Route path="/admin" component={Admin} />
+//       <Route path="/auth" component={Auth} />
+//       <Route path="/rtl" component={RTL} />
+//       <Redirect from="/" to="/admin/dashboard" />
+//     </Switch>
+//   </Router>,
+//   document.getElementById("root")
+// );
+
+ReactDOM.render(
+  <Router>
+    <App />
+  </Router>,
+  document.getElementById("root")
+);

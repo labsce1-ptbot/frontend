@@ -13,7 +13,8 @@ import {
   grayColor,
   blackColor,
   hexToRgb
-} from "assets/jss/material-dashboard-react.jsx";
+  // } from "assets/jss/material-dashboard-react.jsx";
+} from "../../material-dashboard-react";
 
 const pagesHeaderStyle = theme => ({
   appBar: {
