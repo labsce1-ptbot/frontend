@@ -9,17 +9,17 @@ import "perfect-scrollbar/css/perfect-scrollbar.css";
 // @material-ui/core components
 import withStyles from "@material-ui/core/styles/withStyles";
 // core components
-import Navbar from "components/Navbars/Navbar.jsx";
-import Footer from "components/Footer/Footer.jsx";
-import Sidebar from "components/Sidebar/Sidebar.jsx";
-import FixedPlugin from "components/FixedPlugin/FixedPlugin.jsx";
+import Navbar from "../components/Navbars/Navbar.jsx";
+import Footer from "../components/Footer/Footer.jsx";
+import Sidebar from "../components/Sidebar/Sidebar.jsx";
+import FixedPlugin from "../components/FixedPlugin/FixedPlugin.jsx";
 
-import routes from "routes.js";
+import routes from "../routes.js";
 
-import dashboardStyle from "assets/jss/material-dashboard-react/layouts/dashboardStyle.jsx";
+import dashboardStyle from "../assets/jss/material-dashboard-react/layouts/dashboardStyle.jsx";
 
-import image from "assets/img/sidebar-2.jpg";
-import logo from "assets/img/reactlogo.png";
+import image from "../assets/img/sidebar-2.jpg";
+import logo from "../assets/img/reactlogo.png";
 
 const { REACT_APP_SERVER_URL } = process.env;
 let userInfo = {};
@@ -33,7 +33,7 @@ const switchRoutes = (
             path={prop.layout + prop.path}
             component={props => {
               const Component = prop.component;
-              return <Component {...props} {...userInfo}/>
+              return <Component {...props} {...userInfo} />;
             }}
             key={key}
           />
@@ -51,7 +51,7 @@ class Dashboard extends React.Component {
       color: "blue",
       hasImage: true,
       fixedClasses: "dropdown show",
-      mobileOpen: false,      
+      mobileOpen: false
     };
   }
   handleImageClick = image => {

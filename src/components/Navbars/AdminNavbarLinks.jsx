@@ -17,24 +17,29 @@ import Notifications from "@material-ui/icons/Notifications";
 import Dashboard from "@material-ui/icons/Dashboard";
 import Search from "@material-ui/icons/Search";
 // core components
-import CustomInput from "components/CustomInput/CustomInput.jsx";
-import Button from "components/CustomButtons/Button.jsx";
+// import CustomInput from "components/CustomInput/CustomInput.jsx";
+import CustomInput from "../CustomInput/CustomInput";
+// import Button from "components/CustomButtons/Button.jsx";
+import Button from "../CustomButtons/Button";
 
-import headerLinksStyle from "assets/jss/material-dashboard-react/components/headerLinksStyle.jsx";
+import headerLinksStyle from "../../assets/jss/material-dashboard-react/components/headerLinksStyle.jsx";
 
 const { REACT_APP_SERVER_URL } = process.env;
 
 class HeaderLinks extends React.Component {
   state = {
     open: false,
-    profilePopupOpen: false,
+    profilePopupOpen: false
   };
   handleToggle = () => {
     this.setState(state => ({ open: !state.open, profilePopupOpen: false }));
   };
 
   handleToggleProfile = () => {
-    this.setState(state => ({ profilePopupOpen: !state.profilePopupOpen, open: false }));
+    this.setState(state => ({
+      profilePopupOpen: !state.profilePopupOpen,
+      open: false
+    }));
   };
 
   handleClose = event => {
@@ -50,18 +55,19 @@ class HeaderLinks extends React.Component {
     let logoutRequest;
     try {
       logoutRequest = await axios.post(
-        `http://${REACT_APP_SERVER_URL}/logout`, {}, {
+        `http://${REACT_APP_SERVER_URL}/logout`,
+        {},
+        {
           withCredentials: true
         }
       );
     } catch ({ request }) {
-      
       logoutRequest = request;
     }
     if (logoutRequest.status === 301) {
-      history.push('/auth/login-page');
+      history.push("/auth/login-page");
     }
-  }
+  };
 
   render() {
     const { classes } = this.props;
