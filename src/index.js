@@ -14,6 +14,8 @@ import "./assets/css/material-dashboard-react.css?v=1.6.0";
 
 const hist = createBrowserHistory();
 
+// const location = hist.location;
+
 // ReactDOM.render(
 //   <Router history={hist}>
 //     <Switch>
@@ -27,7 +29,7 @@ const hist = createBrowserHistory();
 // );
 
 ReactDOM.render(
-  <Router>
+  <Router history={hist}>
     <App />
   </Router>,
   document.getElementById("root")

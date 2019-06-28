@@ -69,6 +69,7 @@ const sidebarStyle = theme => ({
       content: '""',
       position: "absolute",
       bottom: "0",
+
       height: "1px",
       right: "15px",
       width: "calc(100% - 30px)",
@@ -98,9 +99,7 @@ const sidebarStyle = theme => ({
     display: "inline-block",
     maxHeight: "30px",
     marginLeft: "10px",
-    marginRight: "15px",
-    marginTop: "14px",
-    marginBottom: "10px"
+    marginRight: "15px"
   },
   img: {
     width: "35px",
