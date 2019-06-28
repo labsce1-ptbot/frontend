@@ -79,42 +79,43 @@ class Dashboard extends React.Component {
       this.setState({ mobileOpen: false });
     }
   };
-  // async componentDidMount() {
-  //   const { history } = this.props;
+  async componentDidMount() {
+    const { history } = this.props;
 
-  //   if (navigator.platform.indexOf("Win") > -1) {
-  //     const ps = new PerfectScrollbar(this.refs.mainPanel);
-  //   }
-  //   window.addEventListener("resize", this.resizeFunction);
-
-  //   let getSessionRequest;
-  //   try {
-  //     getSessionRequest = await axios.get(
-  //       `http://${REACT_APP_SERVER_URL}/get-session`,
-  //       {
-  //         withCredentials: true
-  //       }
-  //     );
-  //   } catch ({ response }) {
-  //     getSessionRequest = response;
-  //   }
-  //   const { data: getSessionRequestData } = getSessionRequest;
-  //   if (getSessionRequestData.success) {
-  //     return userInfo = getSessionRequestData.userInfo;
-  //   }
-  //   return history.push("/auth/login-page");
-  // }
-  // componentDidUpdate(e) {
-  //   if (e.history.location.pathname !== e.location.pathname) {
-  //     this.refs.mainPanel.scrollTop = 0;
-  //     if (this.state.mobileOpen) {
-  //       this.setState({ mobileOpen: false });
-  //     }
-  //   }
-  // }
-  // componentWillUnmount() {
-  //   window.removeEventListener("resize", this.resizeFunction);
-  // }
+    if (navigator.platform.indexOf("Win") > -1) {
+      const ps = new PerfectScrollbar(this.refs.mainPanel);
+    }
+    window.addEventListener("resize", this.resizeFunction);
+    // const REACT_URL = "https://pt-b0t.herokuapp.com/profile"
+    let getSessionRequest;
+    try {
+      getSessionRequest = await axios.get(
+        // `http://${REACT_APP_SERVER_URL}/get-session`,
+        "http://localhost:3000/profile",
+        {
+          withCredentials: true
+        }
+      );
+    } catch ({ response }) {
+      getSessionRequest = response;
+    }
+    const { data: getSessionRequestData } = getSessionRequest;
+    if (getSessionRequestData.success) {
+      return userInfo = getSessionRequestData.userInfo;
+    }
+    return history.push("/home");
+  }
+  componentDidUpdate(e) {
+    if (e.history.location.pathname !== e.location.pathname) {
+      this.refs.mainPanel.scrollTop = 0;
+      if (this.state.mobileOpen) {
+        this.setState({ mobileOpen: false });
+      }
+    }
+  }
+  componentWillUnmount() {
+    window.removeEventListener("resize", this.resizeFunction);
+  }
   render() {
     const { classes, ...rest } = this.props;
 
@@ -142,8 +143,8 @@ class Dashboard extends React.Component {
               <div className={classes.container}>{switchRoutes}</div>
             </div>
           ) : (
-            <div className={classes.map}>{switchRoutes}</div>
-          )}
+              <div className={classes.map}>{switchRoutes}</div>
+            )}
           {this.getRoute() ? <Footer /> : null}
           {/* <FixedPlugin
             handleImageClick={this.handleImageClick}
