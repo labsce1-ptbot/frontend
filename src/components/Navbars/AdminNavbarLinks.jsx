@@ -55,7 +55,8 @@ class HeaderLinks extends React.Component {
     let logoutRequest;
     try {
       logoutRequest = await axios.post(
-        `http://${REACT_APP_SERVER_URL}/logout`,
+        // `http://${REACT_APP_SERVER_URL}/logout`,
+        `http://localhost:3000/auth/logout`,
         {},
         {
           withCredentials: true
@@ -65,7 +66,7 @@ class HeaderLinks extends React.Component {
       logoutRequest = request;
     }
     if (logoutRequest.status === 301) {
-      history.push("/auth/login-page");
+      history.push("/home");
     }
   };
 
