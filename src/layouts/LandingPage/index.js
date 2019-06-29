@@ -31,7 +31,7 @@ class LandingPage extends React.Component {
             placeholder="Email Address"
           />
           {/* <a href={`https://pt-b0t.herokuapp.com/auth/login`}>Start Now!</a> */}
-          <a href={process.env.REACT_APP_SERVER_URL + "/auth/login"}><strong>Start Now!</strong></a>
+          <a href={`${process.env.REACT_APP_SERVER_URL}/auth/login`}><strong>Start Now!</strong></a>
         </form>
 
         {/* //<!-- Footer --> */}
