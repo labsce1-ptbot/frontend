@@ -24,7 +24,7 @@ import Button from "../CustomButtons/Button";
 
 import headerLinksStyle from "../../assets/jss/material-dashboard-react/components/headerLinksStyle.jsx";
 
-const { REACT_APP_SERVER_URL } = process.env;
+// const { REACT_APP_SERVER_URL } = process.env;
 
 class HeaderLinks extends React.Component {
   state = {
@@ -55,7 +55,6 @@ class HeaderLinks extends React.Component {
     let logoutRequest;
     try {
       logoutRequest = await axios.post(
-        // `http://${REACT_APP_SERVER_URL}/logout`,
         `${process.env.REACT_APP_SERVER_URL}/auth/logout`,
         // `http://localhost:3000/auth/logout`,
         {},
