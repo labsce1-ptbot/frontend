@@ -1,12 +1,12 @@
 import React, { Component } from "react";
-import { createBrowserHistory } from "history";
+// import { createBrowserHistory } from "history";
 import { Router, Route, Switch, Redirect } from "react-router-dom";
-import axios from "axios";
+// import axios from "axios";
 
 // core components
 import Admin from "./layouts/Admin.jsx";
-import Auth from "./layouts/Auth.jsx";
-import RTL from "./layouts/RTL.jsx";
+// import Auth from "./layouts/Auth.jsx";
+// import RTL from "./layouts/RTL.jsx";
 import LandingPage from "./layouts/LandingPage/index";
 
 // import "./assets/css/material-dashboard-react.css?v=1.6.0";
