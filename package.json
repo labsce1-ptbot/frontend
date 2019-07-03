@@ -20,9 +20,9 @@
     "serve": "^11.0.2"
   },
   "scripts": {
-    "start": "SET PORT=3001 react-scripts start",
+    "start": "PORT=3001 && react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "react-scripts test",  
     "eject": "react-scripts eject",
     "install:clean": "rm -rf node_modules/ && rm -rf package-lock.json && npm install && npm start",
     "build-package-css": "cp src/assets/css/material-dashboard-react.css dist/material-dashboard-react.css",
