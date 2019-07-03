@@ -21,13 +21,24 @@ import dashboardStyle from "../assets/jss/material-dashboard-react/layouts/dashb
 import image from "../assets/img/sidebar-5.jpg";
 import logo from "../assets/img/vacalogo.png";
 // import logo from "../assets/img/reactlogo.png";
+import PrivacyPolicy from "../components/PrivacyPolicy/privacyPolicy";
 
 const { REACT_APP_SERVER_URL } = process.env;
 let userInfo = {};
 
+const privacy = {
+  component: PrivacyPolicy,
+  name: "Privacy Policy",
+  path: "/privacy",
+  layout: "/admin"
+};
+
+let newRoute = [...routes];
+
+newRoute.push(privacy);
 const switchRoutes = (
   <Switch>
-    {routes.map((prop, key) => {
+    {newRoute.map((prop, key) => {
       if (prop.layout === "/admin") {
         return (
           <Route
@@ -100,9 +111,12 @@ class Dashboard extends React.Component {
     } catch ({ response }) {
       getSessionRequest = response;
     }
+
+    console.log("Response", getSessionRequest);
+
     const { data: getSessionRequestData } = getSessionRequest;
     if (getSessionRequestData.success) {
-      return userInfo = getSessionRequestData.userInfo;
+      return (userInfo = getSessionRequestData.userInfo);
     }
     return history.push("/home");
   }
@@ -144,9 +158,9 @@ class Dashboard extends React.Component {
               <div className={classes.container}>{switchRoutes}</div>
             </div>
           ) : (
-              <div className={classes.map}>{switchRoutes}</div>
-            )}
-          {this.getRoute() ? <Footer /> : null}
+            <div className={classes.map}>{switchRoutes}</div>
+          )}
+          {this.getRoute() ? <Footer newRoute={newRoute} /> : null}
           {/* <FixedPlugin
             handleImageClick={this.handleImageClick}
             handleColorClick={this.handleColorClick}
