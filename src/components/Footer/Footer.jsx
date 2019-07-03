@@ -6,9 +6,12 @@ import ListItem from "@material-ui/core/ListItem";
 import List from "@material-ui/core/List";
 // core components
 import footerStyle from "../../assets/jss/material-dashboard-react/components/footerStyle.jsx";
+import { Switch, Link, Redirect } from "react-router-dom";
+import PrivacyPolicy from "../PrivacyPolicy/privacyPolicy";
 
 function Footer({ ...props }) {
-  const { classes } = props;
+  const { classes, newRoute } = props;
+  console.log("props=====", props);
   return (
     <footer className={classes.footer}>
       <div className={classes.container}>
@@ -36,19 +39,12 @@ function Footer({ ...props }) {
             </ListItem>
           </List>
         </div>
-        <p className={classes.right}>
-          <span>
-            &copy; {1900 + new Date().getYear()} made with love, by{" "}
-            <a href="https://www.creative-tim.com" className={classes.a}>
-              Creative Tim
-            </a>{" "}
-            and{" "}
-            <a href="https://udevoffice.com/" className={classes.a}>
-              Udevoffice
-            </a>{" "}
-            for a better web
-          </span>
-        </p>
+        <Link
+          to={newRoute[6].layout + newRoute[6].path}
+          activeClassName="active"
+        >
+          <p className={classes.right}>Terms of Service and Privacy Policy</p>
+        </Link>
       </div>
     </footer>
   );
