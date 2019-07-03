@@ -100,6 +100,9 @@ class Dashboard extends React.Component {
     } catch ({ response }) {
       getSessionRequest = response;
     }
+
+    console.log("Response", getSessionRequest)
+
     const { data: getSessionRequestData } = getSessionRequest;
     if (getSessionRequestData.success) {
       return userInfo = getSessionRequestData.userInfo;
