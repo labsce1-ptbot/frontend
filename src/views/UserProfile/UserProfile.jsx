@@ -6,7 +6,6 @@ import withStyles from "@material-ui/core/styles/withStyles";
 // core components
 import GridItem from "../../components/Grid/GridItem.jsx";
 import GridContainer from "../../components/Grid/GridContainer.jsx";
-import CustomInput from "../../components/CustomInput/CustomInput.jsx";
 import Button from "../../components/CustomButtons/Button.jsx";
 import Card from "../../components/Card/Card.jsx";
 import CardHeader from "../../components/Card/CardHeader.jsx";
@@ -32,7 +31,19 @@ const styles = {
     fontFamily: "'Roboto', 'Helvetica', 'Arial', sans-serif",
     marginBottom: "3px",
     textDecoration: "none"
-  }
+  },
+  cardHeaderBlack: {
+    color: "#000000",
+    marginTop: "0px",
+    minHeight: "auto",
+    fontWeight: "300",
+    fontFamily: "'Roboto', 'Helvetica', 'Arial', sans-serif",
+    marginBottom: "3px",
+    textDecoration: "none",
+    fontSize: "12px",
+    paddingBottom: "10px"
+  },
+  
 };
 
 const { REACT_APP_SERVER_URL } = process.env;
@@ -41,45 +52,30 @@ class UserProfile extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      errors: {}
+      errors: {},
+      user: [],
     };
-    this.updateProfile = this.updateProfile.bind(this);
   }
-  async updateProfile(e) {
-    e.preventDefault();
-
-    const fields = ["name", "username"];
-    const formElements = e.target.elements;
-    const formValues = fields
-      .map(field => ({
-        [field]: formElements.namedItem(field).value
-      }))
-      .reduce((current, next) => ({ ...current, ...next }));
-
-    let registerRequest;
+  async componentDidMount() {
+    let userRequest;
     try {
-      registerRequest = await axios.post(
-        `http://${REACT_APP_SERVER_URL}/profile/update-profile-info`,
-        {
-          ...formValues
-        },
+      userRequest = await axios.get(
+        `${REACT_APP_SERVER_URL}/profile`,
         {
           withCredentials: true
         }
       );
     } catch ({ response }) {
-      registerRequest = response;
+      userRequest = response;
     }
-    const { data: registerRequestData } = registerRequest;
 
-    if (!registerRequestData.success) {
-      this.setState({
-        errors:
-          registerRequestData.messages && registerRequestData.messages.errors
-      });
-    }
+    console.log("User Request", userRequest.data.userInfo[0])
+    await this.setState({
+      user: userRequest.data.userInfo[0]
+    })
   }
   render() {
+    console.log("state", this.state)
     const { classes, name, email } = this.props;
     const { errors } = this.state;
     return (
@@ -89,49 +85,22 @@ class UserProfile extends React.Component {
             <form onSubmit={this.updateProfile}>
               <Card>
                 <CardHeader color="primary">
-                  <h4 className={classes.cardTitleWhite}>Edit Profile</h4>
-                  <p className={classes.cardCategoryWhite}>
-                    Complete your profile
-                  </p>
+                  <h4 className={classes.cardTitleWhite}>Profile Info</h4>
                 </CardHeader>
                 <CardBody>
                   <GridContainer>
-                    <GridItem xs={12} sm={12} md={3}>
-                      <CustomInput
-                        labelText="Name"
-                        id="name"
-                        error={errors.name}
-                        formControlProps={{
-                          fullWidth: true
-                        }}
-                        inputProps={{
-                          required: true,
-                          defaultValue: name,
-                          name: "name"
-                        }}
-                      />
+                    <GridItem xs={12} sm={12} md={5}>
+                    <h2 className={classes.cardHeaderBlack}>Email: {this.state.user.email}</h2>
+                    <h2 className={classes.cardHeaderBlack}>First Name: {this.state.user.first_name}</h2>
                     </GridItem>
-                    <GridItem xs={12} sm={12} md={4}>
-                      <CustomInput
-                        labelText="Email address"
-                        id="email-address"
-                        error={errors.username}
-                        formControlProps={{
-                          fullWidth: true
-                        }}
-                        inputProps={{
-                          required: true,
-                          defaultValue: email,
-                          name: "username"
-                        }}
-                      />
+                    <GridItem xs={12} sm={12} md={5}>
+                    <h2 className={classes.cardHeaderBlack}>Username: {this.state.user.username}</h2>
+                    <h2 className={classes.cardHeaderBlack}>Last Name: {this.state.user.last_name}</h2>
                     </GridItem>
                   </GridContainer>
                 </CardBody>
                 <CardFooter>
-                  <Button type="submit" color="primary">
-                    Update Profile
-                  </Button>
+          
                 </CardFooter>
               </Card>
             </form>
@@ -140,7 +109,7 @@ class UserProfile extends React.Component {
             <Card profile>
               <CardAvatar profile>
                 <a href="#pablo" onClick={e => e.preventDefault()}>
-                  <img src={avatar} alt="..." />
+                  <img src={this.state.user.picture} alt="..." />
                 </a>
               </CardAvatar>
               <CardBody profile>
