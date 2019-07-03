@@ -40,7 +40,10 @@ function Footer({ ...props }) {
           </List>
         </div>
         <Link
-          to={newRoute[6].layout + newRoute[6].path}
+          to={
+            newRoute[newRoute.length - 1].layout +
+            newRoute[newRoute.length - 1].path
+          }
           activeClassName="active"
         >
           <p className={classes.right}>Terms of Service and Privacy Policy</p>
