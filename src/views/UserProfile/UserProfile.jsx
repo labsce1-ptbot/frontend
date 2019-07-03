@@ -96,6 +96,7 @@ class UserProfile extends React.Component {
                     <GridItem xs={12} sm={12} md={5}>
                     <h2 className={classes.cardHeaderBlack}>Username: {this.state.user.username}</h2>
                     <h2 className={classes.cardHeaderBlack}>Last Name: {this.state.user.last_name}</h2>
+                    <h2 className={classes.cardHeaderBlack}>Link Slack:</h2>
                     </GridItem>
                   </GridContainer>
                 </CardBody>
