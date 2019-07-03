@@ -2,13 +2,7 @@ import React from "react";
 // @material-ui/core components
 import withStyles from "@material-ui/core/styles/withStyles";
 // core components
-import Quote from "../Typography/Quote.jsx";
-import Muted from "../Typography/Muted.jsx";
-import Primary from "../Typography/Primary.jsx";
-import Info from "../Typography/Info.jsx";
-import Success from "../Typography/Success.jsx";
-import Warning from "../Typography/Warning.jsx";
-import Danger from "../Typography/Danger.jsx";
+
 import Card from "../Card/Card.jsx";
 import CardHeader from "../Card/CardHeader.jsx";
 import CardBody from "../Card/CardBody";
@@ -54,102 +48,97 @@ function PrivacyPolicy(props) {
   return (
     <Card>
       <CardHeader color="primary">
-        <h4 className={classes.cardTitleWhite}>Material Dashboard Heading</h4>
-        <p className={classes.cardCategoryWhite}>
-          Created using Roboto Font Family
-        </p>
+        <h3 className={classes.cardTitleWhite}>
+          Terms and Conditions Privacy Policy
+        </h3>
       </CardHeader>
       <CardBody>
         <div className={classes.typo}>
-          <div className={classes.note}>Header 1</div>
-          <h1>The Life of Material Dashboard</h1>
-        </div>
-        <div className={classes.typo}>
-          <div className={classes.note}>Header 2</div>
-          <h2>The Life of Material Dashboard</h2>
-        </div>
-        <div className={classes.typo}>
-          <div className={classes.note}>Header 3</div>
-          <h3>The Life of Material Dashboard</h3>
-        </div>
-        <div className={classes.typo}>
-          <div className={classes.note}>Header 4</div>
-          <h4>The Life of Material Dashboard</h4>
-        </div>
-        <div className={classes.typo}>
-          <div className={classes.note}>Header 5</div>
-          <h5>The Life of Material Dashboard</h5>
-        </div>
-        <div className={classes.typo}>
-          <div className={classes.note}>Header 6</div>
-          <h6>The Life of Material Dashboard</h6>
-        </div>
-        <div className={classes.typo}>
-          <div className={classes.note}>Paragraph</div>
           <p>
-            I will be the leader of a company that ends up being worth billions
-            of dollars, because I got the answers. I understand culture. I am
-            the nucleus. I think that’s a responsibility that I have, to push
-            possibilities, to show people, this is the level that things could
-            be at.
+            Please read these Terms and Conditions ("Terms", "Terms and
+            Conditions") carefully before using the https://ptbot.netlify.com
+            website and the PTbOt Slack application (together, or individually,
+            the "Service") created by PTbOt ("us", "we", or "our").
           </p>
         </div>
         <div className={classes.typo}>
-          <div className={classes.note}>Quote</div>
-          <Quote
-            text="I will be the leader of a company that ends up being worth billions of dollars, because I got the answers. I understand culture. I am the nucleus. I think that’s a responsibility that I have, to push possibilities, to show people, this is the level that things could be at."
-            author=" Kanye West, Musician"
-          />
+          <div className={classes.note}>
+            <a href="https://github.com/labsce1-ptbot">Open Source</a>
+          </div>
+          <p>
+            PTbOt is completely open source with the source code located at
+            (https://github.com/labsce1-ptbot). If you decide to use PTbOt
+            please understand that personal data is stored as outlined in our
+            Privacy Policy above. On top of the data we collect for OAuth, we
+            also store users’ away messages (“Messages”). Information stored in
+            each Message is at the discretion of the user. PTbOt does not use
+            this information in any way, other than for the intended use of the
+            Service: as a Message in Slack. Messages are stored until the users’
+            vacation is over (vacation end date). The day after a user’s
+            vacation end date, the entire vacation and associated Messages are
+            removed from PTbOT’s database.
+          </p>
         </div>
         <div className={classes.typo}>
-          <div className={classes.note}>Muted Text</div>
-          <Muted>
-            I will be the leader of a company that ends up being worth billions
-            of dollars, because I got the answers...
-          </Muted>
+          <div className={classes.note}>Indemnification</div>
+          <p>
+            You agree to defend, indemnify and hold harmless PTbOt, and its
+            licensee and licensors, and the creators (engineers) from and
+            against any and all claims, damages, obligations, losses,
+            liabilities, costs or debt, and expenses (including but not limited
+            to attorney's fees), resulting from or arising out of a. your use
+            and access of the Service, by you or any person using your account
+            and password, or b. a breach of these Terms.
+          </p>
         </div>
         <div className={classes.typo}>
-          <div className={classes.note}>Primary Text</div>
-          <Primary>
-            I will be the leader of a company that ends up being worth billions
-            of dollars, because I got the answers...
-          </Primary>
+          <div className={classes.note}>Limitation Of Liability</div>
+          <p>
+            In no event shall PTbOT., nor its creators, be liable for any
+            indirect, incidental, special, consequential or punitive damages,
+            including without limitation, loss of profits, data, use, goodwill,
+            or other intangible losses, resulting from (i) your access to or use
+            of or inability to access or use the Service; (ii) any conduct or
+            content of any third party on the Service; (iii) any content
+            obtained from the Service; (iv) any conduct or content you create
+            during the use of the Service and (v) unauthorized access, use or
+            alteration of your transmissions or content, whether based on
+            warranty, contract, tort (including negligence) or any other legal
+            theory, whether or not we have been informed of the possibility of
+            such damage, and even if a remedy set forth herein is found to have
+            failed of its essential purpose.
+          </p>
         </div>
         <div className={classes.typo}>
-          <div className={classes.note}>Info Text</div>
-          <Info>
-            I will be the leader of a company that ends up being worth billions
-            of dollars, because I got the answers...
-          </Info>
+          <div className={classes.note}>Disclaimer</div>
+          <p>
+            Your use of the Service is at your sole risk. The Service is
+            provided on an "AS IS" and "AS AVAILABLE" basis. The Service is
+            provided without warranties of any kind, whether express or implied,
+            including, but not limited to, implied warranties of
+            merchantability, fitness for a particular purpose, non-infringement
+            or course of performance. PTbOt its subsidiaries, affiliates, and
+            its licensors do not warrant that <br />
+            a. The Service will function uninterrupted, secure or available at
+            any particular time or location; <br />
+            b. Any errors or defects will be corrected;
+            <br /> c. The Service is free of viruses or other harmful
+            components; or <br />
+            d. The results of using the Service will meet your requirements.
+          </p>
         </div>
         <div className={classes.typo}>
-          <div className={classes.note}>Success Text</div>
-          <Success>
-            I will be the leader of a company that ends up being worth billions
-            of dollars, because I got the answers...
-          </Success>
-        </div>
-        <div className={classes.typo}>
-          <div className={classes.note}>Warning Text</div>
-          <Warning>
-            I will be the leader of a company that ends up being worth billions
-            of dollars, because I got the answers...
-          </Warning>
-        </div>
-        <div className={classes.typo}>
-          <div className={classes.note}>Danger Text</div>
-          <Danger>
-            I will be the leader of a company that ends up being worth billions
-            of dollars, because I got the answers...
-          </Danger>
-        </div>
-        <div className={classes.typo}>
-          <div className={classes.note}>Small Tag</div>
-          <h2>
-            Header with small subtitle
-            <br />
-            <small>Use "Small" tag for the headers</small>
-          </h2>
+          <div className={classes.note}>Changes</div>
+          <p>
+            We reserve the right, at our sole discretion, to modify or replace
+            these Terms at any time. If a revision is material we will provide
+            at least 30 days’ notice prior to any new terms taking effect. What
+            constitutes a material change will be determined at our sole
+            discretion. By continuing to access or use our Service after any
+            revisions become effective, you agree to be bound by the revised
+            terms. If you do not agree to the new terms, you are no longer
+            authorized to use the Service.
+          </p>
         </div>
       </CardBody>
     </Card>
