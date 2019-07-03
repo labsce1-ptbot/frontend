@@ -36,15 +36,15 @@ function Footer({ ...props }) {
             </ListItem>
           </List>
         </div>
-        <p className={classes.right}>
-          <span>
-            &copy; {1900 + new Date().getYear()}{" "}
-            <a href="https://www.creative-tim.com" className={classes.a}>
-              Creative Tim
-            </a>
-            , made with love for a better web
-          </span>
-        </p>
+        <Link
+          to={
+            newRoute[newRoute.length - 1].layout +
+            newRoute[newRoute.length - 1].path
+          }
+          activeClassName="active"
+        >
+          <p className={classes.right}>Terms of Service and Privacy Policy</p>
+        </Link>
       </div>
     </footer>
   );
