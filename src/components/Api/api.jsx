@@ -1,6 +1,13 @@
 import axios from "axios";
 
-export async function getAllVacations(userI) {
+const url = process.env.REACT_APP_SERVER_URL;
+
+export async function getAllVacations(id) {
   try {
-  } catch {}
+    const vacations = await axios.get(`${url}/info/${id}`);
+    console.log("=============vacay====", vacations);
+    return vacations;
+  } catch {
+    throw new Error("There was an error");
+  }
 }

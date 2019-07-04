@@ -43,35 +43,43 @@ const styles = {
 class TableList extends Component {
   state = {
     vacations: [],
-    error: false
+    error: false,
+    id: null
   };
 
   componentDidMount() {
-    const { email } = this.props[0];
-    console.log("props tablelist", email);
-    if (email) {
-      this.fetchVacations(email);
+    if (this.state.id !== null) {
+      this.fetchVacations(this.state.id);
+    } else if (this.props[0]._id) {
+      this.fetchVacations(this.props[0]._id);
+      this.setState({
+        id: this.props[0]._id
+      });
     } else {
       this.setState({
         error: true
       });
     }
+    console.log(this.props);
   }
 
-  fetchVacations = email => {
+  fetchVacations = id => {
     console.log("============hell ya");
-    // getAllVacations(email);
+    getAllVacations(id)
+      .then(res => {
+        this.setState({
+          vacations: res.data
+        });
+      })
+      .catch(err => {
+        this.setState({
+          error: true
+        });
+      });
   };
 
-  componentDidUpdate(prevProps, prevState) {
-    const {} = this.props;
-    if (prevProps[0].email !== this.props[0].email) {
-      console.log("hell ya!");
-    }
-  }
-
   render() {
-    console.log("props tablelist", this.props[0]);
+    console.log("props tablelist", this.state);
     const { classes } = this.props;
     return (
       <GridContainer>
