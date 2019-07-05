@@ -10,6 +10,8 @@ import CardHeader from "../../components/Card/CardHeader.jsx";
 import CardBody from "../../components/Card/CardBody.jsx";
 import { getAllVacations } from "../../components/Api/api";
 import DatePicker from "../../components/DatePicker/DatePicker.jsx";
+import TextField from "@material-ui/core/TextField";
+import Button from "../../components/CustomButtons/Button";
 
 const styles = {
   cardCategoryWhite: {
@@ -38,6 +40,10 @@ const styles = {
       fontWeight: "400",
       lineHeight: "1"
     }
+  },
+  vacForm: {
+    display: "flex",
+    flexDirection: "column"
   }
 };
 
@@ -129,56 +135,36 @@ class TableList extends Component {
         </GridItem>
         <GridItem xs={12} sm={12} md={4}>
           <Card>
-            <CardHeader plain color="primary">
+            <CardHeader color="primary">
               <h4 className={classes.cardTitleWhite}>Schedule a Vacation</h4>
             </CardHeader>
-            <DatePicker dateLabel={"Start Date"} updateDate={this.updateDate} />
-            <DatePicker dateLabel={"End Date"} updateDate={this.updateDate} />
-            <CardBody profile>
+            <form className={classes.vacForm}>
+              <DatePicker
+                dateLabel={"Start Date"}
+                updateDate={this.updateDate}
+              />
+              <DatePicker dateLabel={"End Date"} updateDate={this.updateDate} />
+              <TextField
+                id="outlined-multiline-static"
+                label="Away Message"
+                multiline
+                rows="4"
+                placeholder="Optional"
+                className={classes.textField}
+                margin="normal"
+                variant="outlined"
+              />
+              <Button color="primary" round>
+                Save
+              </Button>
+            </form>
+            {/* <CardBody profile>
               <p className={classes.description}>
                 Don't be scared of the truth because we need to restart the
                 human foundation in truth And I love you like Kanye loves Kanye
                 I love Rick Owens’ bed design but the back is...
               </p>
-            </CardBody>
-          </Card>
-        </GridItem>
-        <GridItem xs={12} sm={12} md={12}>
-          <Card plain>
-            <CardHeader plain color="primary">
-              <h4 className={classes.cardTitleWhite}>
-                Table on Plain Background
-              </h4>
-              <p className={classes.cardCategoryWhite}>
-                Here is a subtitle for this table
-              </p>
-            </CardHeader>
-            <CardBody>
-              <Table
-                tableHeaderColor="primary"
-                tableHead={["ID", "Name", "Country", "City", "Salary"]}
-                tableData={[
-                  ["1", "Dakota Rice", "$36,738", "Niger", "Oud-Turnhout"],
-                  ["2", "Minerva Hooper", "$23,789", "Curaçao", "Sinaai-Waas"],
-                  ["3", "Sage Rodriguez", "$56,142", "Netherlands", "Baileux"],
-                  [
-                    "4",
-                    "Philip Chaney",
-                    "$38,735",
-                    "Korea, South",
-                    "Overland Park"
-                  ],
-                  [
-                    "5",
-                    "Doris Greene",
-                    "$63,542",
-                    "Malawi",
-                    "Feldkirchen in Kärnten"
-                  ],
-                  ["6", "Mason Porter", "$78,615", "Chile", "Gloucester"]
-                ]}
-              />
-            </CardBody>
+            </CardBody> */}
           </Card>
         </GridItem>
       </GridContainer>
