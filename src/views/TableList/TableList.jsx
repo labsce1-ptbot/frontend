@@ -9,6 +9,7 @@ import Card from "../../components/Card/Card.jsx";
 import CardHeader from "../../components/Card/CardHeader.jsx";
 import CardBody from "../../components/Card/CardBody.jsx";
 import { getAllVacations } from "../../components/Api/api";
+import DatePicker from "../../components/DatePicker/DatePicker.jsx";
 
 const styles = {
   cardCategoryWhite: {
@@ -48,18 +49,18 @@ class TableList extends Component {
   };
 
   componentDidMount() {
-    if (this.state.id !== null) {
-      this.fetchVacations(this.state.id);
-    } else if (this.props[0]._id) {
-      this.fetchVacations(this.props[0]._id);
-      this.setState({
-        id: this.props[0]._id
-      });
-    } else {
-      this.setState({
-        error: true
-      });
-    }
+    // if (this.state.id !== null) {
+    //   this.fetchVacations(this.state.id);
+    // } else if (this.props[0]._id) {
+    //   this.fetchVacations(this.props[0]._id);
+    //   this.setState({
+    //     id: this.props[0]._id
+    //   });
+    // } else {
+    //   this.setState({
+    //     error: true
+    //   });
+    // }
     console.log(this.props);
   }
 
@@ -83,13 +84,14 @@ class TableList extends Component {
     const { classes } = this.props;
     return (
       <GridContainer>
-        <GridItem xs={12} sm={12} md={12}>
+        <GridItem xs={12} sm={12} md={8}>
           <Card>
             <CardHeader color="primary">
               <h4 className={classes.cardTitleWhite}>Simple Table</h4>
               <p className={classes.cardCategoryWhite}>
                 Here is a subtitle for this table
               </p>
+              <DatePicker />
             </CardHeader>
             <CardBody>
               <Table
@@ -109,6 +111,20 @@ class TableList extends Component {
                   ["Mason Porter", "Chile", "Gloucester", "$78,615"]
                 ]}
               />
+            </CardBody>
+          </Card>
+        </GridItem>
+        <GridItem xs={12} sm={12} md={4}>
+          <Card>
+            <CardHeader plain color="primary">
+              <h4 className={classes.cardTitleWhite}>Schedule a Vacation</h4>
+            </CardHeader>
+            <CardBody profile>
+              <p className={classes.description}>
+                Don't be scared of the truth because we need to restart the
+                human foundation in truth And I love you like Kanye loves Kanye
+                I love Rick Owens’ bed design but the back is...
+              </p>
             </CardBody>
           </Card>
         </GridItem>
