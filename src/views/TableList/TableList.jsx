@@ -45,7 +45,10 @@ class TableList extends Component {
   state = {
     vacations: [],
     error: false,
-    id: null
+    id: null,
+    vacationStartDate: null,
+    vacationEndDate: null,
+    message: ""
   };
 
   componentDidMount() {
@@ -79,6 +82,17 @@ class TableList extends Component {
       });
   };
 
+  updateDate = (label, date) => {
+    if (label === "Start Date") {
+      label = "vacationStartDate";
+    } else {
+      label = "vacationEndDate";
+    }
+    this.setState({
+      [label]: date
+    });
+  };
+
   render() {
     console.log("props tablelist", this.state);
     const { classes } = this.props;
@@ -87,11 +101,10 @@ class TableList extends Component {
         <GridItem xs={12} sm={12} md={8}>
           <Card>
             <CardHeader color="primary">
-              <h4 className={classes.cardTitleWhite}>Simple Table</h4>
+              <h4 className={classes.cardTitleWhite}>Vacations Scheduled</h4>
               <p className={classes.cardCategoryWhite}>
                 Here is a subtitle for this table
               </p>
-              <DatePicker />
             </CardHeader>
             <CardBody>
               <Table
@@ -119,6 +132,8 @@ class TableList extends Component {
             <CardHeader plain color="primary">
               <h4 className={classes.cardTitleWhite}>Schedule a Vacation</h4>
             </CardHeader>
+            <DatePicker dateLabel={"Start Date"} updateDate={this.updateDate} />
+            <DatePicker dateLabel={"End Date"} updateDate={this.updateDate} />
             <CardBody profile>
               <p className={classes.description}>
                 Don't be scared of the truth because we need to restart the
