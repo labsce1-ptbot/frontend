@@ -12,6 +12,7 @@ import { getAllVacations } from "../../components/Api/api";
 import DatePicker from "../../components/DatePicker/DatePicker.jsx";
 import TextField from "@material-ui/core/TextField";
 import Button from "../../components/CustomButtons/Button";
+import "../../assets/css/calendar.css";
 
 const styles = {
   cardCategoryWhite: {
@@ -42,8 +43,12 @@ const styles = {
     }
   },
   vacForm: {
-    display: "flex",
-    flexDirection: "column"
+    textAlign: "center",
+    padding: ".9375rem 20px"
+  },
+
+  textField: {
+    width: "100%"
   }
 };
 
@@ -154,7 +159,7 @@ class TableList extends Component {
                 margin="normal"
                 variant="outlined"
               />
-              <Button color="primary" round>
+              <Button color="primary" round className={classes.saveBtn}>
                 Save
               </Button>
             </form>
