@@ -23,6 +23,7 @@ import RTLPage from "./views/RTLPage/RTLPage.jsx";
 // core components/views for Auth layout
 import LoginPage from "./views/Pages/LoginPage.jsx";
 import RegisterPage from "./views/Pages/RegisterPage.jsx";
+import Vacations from "./views/Vacations/Vacations.jsx";
 
 const dashboardRoutes = [
   {
@@ -42,11 +43,11 @@ const dashboardRoutes = [
     layout: "/admin"
   },
   {
-    path: "/table",
-    name: "Table List",
+    path: "/vacations",
+    name: "Vacations",
     rtlName: "قائمة الجدول",
     icon: "event",
-    component: TableList,
+    component: Vacations,
     layout: "/admin"
   },
   {
