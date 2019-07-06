@@ -11,3 +11,16 @@ export async function getAllVacations(id) {
     throw new Error("There was an error");
   }
 }
+
+export async function getProfile() {
+  let userRequest;
+  try {
+    userRequest = await axios.get(`${url}/profile`, {
+      withCredentials: true
+    });
+  } catch ({ response }) {
+    userRequest = response;
+  }
+
+  return userRequest.data.userInfo[0]._id;
+}

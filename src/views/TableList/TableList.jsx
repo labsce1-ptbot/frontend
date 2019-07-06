@@ -8,11 +8,12 @@ import Table from "../../components/Table/Table.jsx";
 import Card from "../../components/Card/Card.jsx";
 import CardHeader from "../../components/Card/CardHeader.jsx";
 import CardBody from "../../components/Card/CardBody.jsx";
-import { getAllVacations } from "../../components/Api/api";
+import { getAllVacations, getProfile } from "../../components/Api/api";
 import DatePicker from "../../components/DatePicker/DatePicker.jsx";
 import TextField from "@material-ui/core/TextField";
 import Button from "../../components/CustomButtons/Button";
 import "../../assets/css/calendar.css";
+import axios from "axios";
 
 const styles = {
   cardCategoryWhite: {
@@ -63,18 +64,16 @@ class TableList extends Component {
   };
 
   componentDidMount() {
-    // if (this.state.id !== null) {
-    //   this.fetchVacations(this.state.id);
-    // } else if (this.props[0]._id) {
-    //   this.fetchVacations(this.props[0]._id);
-    //   this.setState({
-    //     id: this.props[0]._id
-    //   });
-    // } else {
-    //   this.setState({
-    //     error: true
-    //   });
-    // }
+    if (this.state.id !== null) {
+      this.fetchVacations(this.state.id);
+    } else if (this.props[0] === undefined) {
+      this.missingProfile();
+    } else {
+      this.fetchVacations(this.props[0]._id);
+      this.setState({
+        id: this.props[0]._id
+      });
+    }
     console.log(this.props);
   }
 
@@ -84,6 +83,22 @@ class TableList extends Component {
       .then(res => {
         this.setState({
           vacations: res.data
+        });
+      })
+      .catch(err => {
+        this.setState({
+          error: true
+        });
+      });
+  };
+
+  missingProfile = () => {
+    getProfile()
+      .then(res => {
+        console.log("res====>", res);
+        this.fetchVacations(res);
+        this.setState({
+          id: res
         });
       })
       .catch(err => {
