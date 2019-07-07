@@ -13,6 +13,8 @@ import DatePicker from "../../components/DatePicker/DatePicker.jsx";
 import TextField from "@material-ui/core/TextField";
 import Button from "../../components/CustomButtons/Button";
 import "../../assets/css/calendar.css";
+import VacationForm from "../../components/VacationForm/vacationForm.jsx";
+import { Typography } from "@material-ui/core";
 
 const styles = {
   cardCategoryWhite: {
@@ -56,10 +58,7 @@ class Vacations extends Component {
   state = {
     vacations: [],
     error: false,
-    id: null,
-    vacationStartDate: null,
-    vacationEndDate: null,
-    message: ""
+    id: null
   };
 
   componentDidMount() {
@@ -107,20 +106,10 @@ class Vacations extends Component {
       });
   };
 
-  updateDate = (label, date) => {
-    if (label === "Start Date") {
-      label = "vacationStartDate";
-    } else {
-      label = "vacationEndDate";
-    }
-    this.setState({
-      [label]: date
-    });
-  };
-
   render() {
     console.log("props tablelist", this.state);
     const { classes } = this.props;
+    const { vacations } = this.state;
     return (
       <GridContainer>
         <GridItem xs={12} sm={12} md={8}>
@@ -135,15 +124,9 @@ class Vacations extends Component {
               <Table
                 tableHeaderColor="primary"
                 tableHead={["Start Date", "End Date", "Message"]}
-                tableData={[
-                  ["Dakota Rice", "Niger", "Oud-Turnhout"],
-                  ["Minerva Hooper", "Curaçao", "Sinaai-Waas"],
-                  ["Sage Rodriguez", "Netherlands", "Baileux"],
-                  ["Philip Chaney", "Korea, South", "Overland Park"],
-                  ["Doris Greene", "Malawi", "Feldkirchen in Kärnten"],
-                  ["Mason Porter", "Chile", "Gloucester"]
-                ]}
+                tableData={vacations}
               />
+              {vacations.length > 0 ? null : "No Vacations Scheduled"}
             </CardBody>
           </Card>
         </GridItem>
@@ -152,33 +135,7 @@ class Vacations extends Component {
             <CardHeader color="primary">
               <h4 className={classes.cardTitleWhite}>Schedule a Vacation</h4>
             </CardHeader>
-            <form className={classes.vacForm}>
-              <DatePicker
-                dateLabel={"Start Date"}
-                updateDate={this.updateDate}
-              />
-              <DatePicker dateLabel={"End Date"} updateDate={this.updateDate} />
-              <TextField
-                id="outlined-multiline-static"
-                label="Away Message"
-                multiline
-                rows="4"
-                placeholder="Optional"
-                className={classes.textField}
-                margin="normal"
-                variant="outlined"
-              />
-              <Button color="primary" round className={classes.saveBtn}>
-                Save
-              </Button>
-            </form>
-            {/* <CardBody profile>
-              <p className={classes.description}>
-                Don't be scared of the truth because we need to restart the
-                human foundation in truth And I love you like Kanye loves Kanye
-                I love Rick Owens’ bed design but the back is...
-              </p>
-            </CardBody> */}
+            <VacationForm />
           </Card>
         </GridItem>
       </GridContainer>
