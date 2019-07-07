@@ -3,6 +3,7 @@ import DatePicker from "../DatePicker/DatePicker";
 import Button from "../CustomButtons/Button";
 import withStyles from "@material-ui/core/styles/withStyles";
 import TextField from "@material-ui/core/TextField";
+import { saveVacation } from "../../components/Api/api";
 
 const styles = {
   cardCategoryWhite: {
@@ -60,10 +61,23 @@ class VacationForm extends Component {
     });
   };
 
+  submitHandler = event => {
+    event.preventDefault();
+    const { vacationEndDate, vacationStartDate, message } = this.state;
+    const { id } = this.props;
+    const vacay = { vacationEndDate, vacationStartDate, message, id };
+    saveVacation(vacay);
+  };
+
+  changeHandler = event => {
+    this.setState({ [event.target.name]: event.target.value });
+  };
+
   render() {
     const { classes } = this.props;
+    console.log("form", this.props);
     return (
-      <form className={classes.vacForm}>
+      <form className={classes.vacForm} onSubmit={this.submitHandler}>
         <DatePicker dateLabel={"Start Date"} updateDate={this.updateDate} />
         <DatePicker dateLabel={"End Date"} updateDate={this.updateDate} />
         <TextField
@@ -75,8 +89,10 @@ class VacationForm extends Component {
           className={classes.textField}
           margin="normal"
           variant="outlined"
+          name="message"
+          onChange={this.changeHandler}
         />
-        <Button color="primary" round className={classes.saveBtn}>
+        <Button type="submit" color="primary" round className={classes.saveBtn}>
           Save
         </Button>
       </form>

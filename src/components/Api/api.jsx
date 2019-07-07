@@ -24,3 +24,12 @@ export async function getProfile() {
 
   return userRequest.data.userInfo[0]._id;
 }
+
+export async function saveVacation(vacation) {
+  try {
+    const newVacation = await axios.post(`${url}/add/new`, vacation);
+    console.log(newVacation);
+  } catch {
+    throw new Error("Vacation could not be added");
+  }
+}

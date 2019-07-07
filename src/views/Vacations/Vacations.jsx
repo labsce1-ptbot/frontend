@@ -109,7 +109,7 @@ class Vacations extends Component {
   render() {
     console.log("props tablelist", this.state);
     const { classes } = this.props;
-    const { vacations } = this.state;
+    const { vacations, id } = this.state;
     return (
       <GridContainer>
         <GridItem xs={12} sm={12} md={8}>
@@ -135,7 +135,7 @@ class Vacations extends Component {
             <CardHeader color="primary">
               <h4 className={classes.cardTitleWhite}>Schedule a Vacation</h4>
             </CardHeader>
-            <VacationForm />
+            <VacationForm id={id} fetchVacations={this.fetchVacations} />
           </Card>
         </GridItem>
       </GridContainer>
