@@ -264,7 +264,7 @@ body > * {
   transition: opacity 2s ease-in-out;
   height: 100%;
   left: 0;
-  opacity: 0.25;
+  opacity: 0.6;
   position: fixed;
   top: 0;
   width: 100%;
@@ -470,7 +470,7 @@ a:hover {
 
 strong,
 b {
-  color: #fff;
+  color: rgb(0, 0, 0);
   font-weight: 700;
 }
 
@@ -596,7 +596,7 @@ article.special {
 }
 
 .header p {
-  color: rgba(255, 255, 255, 0.5);
+  color: black;
   position: relative;
   margin: 0 0 1.5em 0;
 }
@@ -906,7 +906,7 @@ textarea {
   background-color: transparent;
   border-radius: 6px;
   border: none;
-  border: solid 2px rgba(255, 255, 255, 0.35);
+  border: solid 2px rgba(6, 62, 136, 0.35);
   color: inherit;
   display: block;
   outline: 0;
@@ -1051,7 +1051,7 @@ input[type="radio"] + label:before {
 }
 
 ::-webkit-input-placeholder {
-  color: rgba(255, 255, 255, 0.5) !important;
+  color: black !important;
   opacity: 1;
 }
 
@@ -1063,6 +1063,7 @@ input[type="radio"] + label:before {
 ::-moz-placeholder {
   color: rgba(255, 255, 255, 0.5) !important;
   opacity: 1;
+  color: black;
 }
 
 :-ms-input-placeholder {
@@ -1151,13 +1152,16 @@ button:disabled,
 /* Header */
 
 .header h1 {
-  font-size: 3.25em;
+  font-size: 4em;
+  font-weight: bold;
   margin: 0 0 0.55em 0;
+  color: black;
 }
 
 .header p {
-  font-size: 1.35em;
+  font-size: 2em;
   line-height: 1.65em;
+  font-weight: bold;
 }
 
 .header a {
@@ -1240,24 +1244,17 @@ button:disabled,
   -webkit-transition: opacity 0.5s ease-in-out;
   -ms-transition: opacity 0.5s ease-in-out;
   transition: opacity 0.5s ease-in-out;
-  bottom: 4em;
+  margin-top: 20px;
   color: rgba(255, 255, 255, 0.5);
-  left: 4em;
-  opacity: 0.5;
-  position: absolute;
+  position: relative;
 }
 
 .footer .icons {
-  margin: 0 0 0.5em 0;
+  color: black;
+  position: relative;
 }
 
-.footer .copyright {
-  font-size: 0.8em;
-  list-style: none;
-  padding: 0;
-}
-
-.footer .copyright li {
+/* .footer .copyright li {
   border-left: solid 1px rgba(255, 255, 255, 0.25);
   display: inline-block;
   line-height: 1em;
@@ -1269,7 +1266,7 @@ button:disabled,
   border-left: 0;
   margin-left: 0;
   padding-left: 0;
-}
+} */
 
 .footer .copyright a {
   color: inherit;
@@ -1283,7 +1280,7 @@ button:disabled,
   margin-bottom: 0;
 }
 
-@media screen and (max-width: 1680px) {
+/* @media screen and (max-width: 1680px) {
   .footer {
     bottom: 3.5em;
     left: 3.5em;
@@ -1311,4 +1308,4 @@ button:disabled,
     margin: 1em 0 0 0;
     position: relative;
   }
-}
+} */
