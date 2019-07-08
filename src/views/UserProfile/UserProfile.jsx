@@ -15,6 +15,10 @@ import CardFooter from "../../components/Card/CardFooter.jsx";
 
 import avatar from "../../assets/img/faces/marc.jpg";
 
+const url = `https://slack.com/oauth/authorize?client_id=${
+  process.env.REACT_APP_clientId
+}&scope=identity.basic identity.email`;
+
 const styles = {
   cardCategoryWhite: {
     color: "rgba(255,255,255,.62)",
@@ -42,8 +46,7 @@ const styles = {
     textDecoration: "none",
     fontSize: "12px",
     paddingBottom: "10px"
-  },
-  
+  }
 };
 
 const { REACT_APP_SERVER_URL } = process.env;
@@ -53,29 +56,26 @@ class UserProfile extends React.Component {
     super(props);
     this.state = {
       errors: {},
-      user: [],
+      user: []
     };
   }
   async componentDidMount() {
     let userRequest;
     try {
-      userRequest = await axios.get(
-        `${REACT_APP_SERVER_URL}/profile`,
-        {
-          withCredentials: true
-        }
-      );
+      userRequest = await axios.get(`${REACT_APP_SERVER_URL}/profile`, {
+        withCredentials: true
+      });
     } catch ({ response }) {
       userRequest = response;
     }
 
-    console.log("User Request", userRequest.data.userInfo[0])
+    console.log("User Request", userRequest.data.userInfo[0]);
     await this.setState({
       user: userRequest.data.userInfo[0]
-    })
+    });
   }
   render() {
-    console.log("state", this.state)
+    console.log("state", this.state);
     const { classes, name, email } = this.props;
     const { errors } = this.state;
     return (
@@ -90,19 +90,32 @@ class UserProfile extends React.Component {
                 <CardBody>
                   <GridContainer>
                     <GridItem xs={12} sm={12} md={5}>
-                    <h2 className={classes.cardHeaderBlack}>Email: {this.state.user.email}</h2>
-                    <h2 className={classes.cardHeaderBlack}>First Name: {this.state.user.first_name}</h2>
+                      <h2 className={classes.cardHeaderBlack}>
+                        Email: {this.state.user.email}
+                      </h2>
+                      <h2 className={classes.cardHeaderBlack}>
+                        First Name: {this.state.user.first_name}
+                      </h2>
                     </GridItem>
                     <GridItem xs={12} sm={12} md={5}>
-                    <h2 className={classes.cardHeaderBlack}>Username: {this.state.user.username}</h2>
-                    <h2 className={classes.cardHeaderBlack}>Last Name: {this.state.user.last_name}</h2>
-                    <h2 className={classes.cardHeaderBlack}>Link Slack:</h2>
+                      <h2 className={classes.cardHeaderBlack}>
+                        Username: {this.state.user.username}
+                      </h2>
+                      <h2 className={classes.cardHeaderBlack}>
+                        Last Name: {this.state.user.last_name}
+                      </h2>
+                      <h2 className={classes.cardHeaderBlack}>
+                        Link Slack:
+                        {
+                          <a href={url}>
+                            <img src="https://api.slack.com/img/sign_in_with_slack.png" />
+                          </a>
+                        }
+                      </h2>
                     </GridItem>
                   </GridContainer>
                 </CardBody>
-                <CardFooter>
-          
-                </CardFooter>
+                <CardFooter />
               </Card>
             </form>
           </GridItem>
