@@ -103,15 +103,16 @@ class UserProfile extends React.Component {
                       </h2>
                       <h2 className={classes.cardHeaderBlack}>
                         Last Name: {this.state.user.last_name}
-                      </h2>
-                      <h2 className={classes.cardHeaderBlack}>
+                        </h2>
+                      
+                      {this.state.user.slack ? "Linked" : <h2 className={classes.cardHeaderBlack}>
                         Link Slack:
-                        {
                           <a href={url}>
                             <img src="https://api.slack.com/img/sign_in_with_slack.png" />
                           </a>
                         }
                       </h2>
+                      }
                     </GridItem>
                   </GridContainer>
                 </CardBody>
