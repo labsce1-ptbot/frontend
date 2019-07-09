@@ -56,7 +56,6 @@ class DatePicker extends Component {
   }
 
   render() {
-    console.log(this.state);
     const { selectedDate, setSelectedDate } = this.state;
     const { dateLabel, classes } = this.props;
     return (

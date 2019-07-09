@@ -75,7 +75,7 @@ class VacationForm extends Component {
 
   render() {
     const { classes } = this.props;
-    console.log("form", this.props);
+
     return (
       <form className={classes.vacForm} onSubmit={this.submitHandler}>
         <DatePicker dateLabel={"Start Date"} updateDate={this.updateDate} />

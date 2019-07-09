@@ -35,7 +35,6 @@ function CustomTable({ ...props }) {
         ) : null}
         <TableBody>
           {tableData.map((prop, key) => {
-            console.log("djfdlakfjkladkfladkljfakdlfj", prop);
             return (
               <TableRow key={prop._id}>
                 {/* {prop.map((prop, key) => {
