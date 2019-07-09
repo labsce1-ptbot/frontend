@@ -47,7 +47,7 @@ function CustomTable({ ...props }) {
                 </TableCell>
                 <TableCell className={classes.tableCell}>
                   {prop.message.length > 0
-                    ? prop.message[0]
+                    ? prop.message[0].custom_message
                     : "No Saved Message"}
                 </TableCell>
                 {/* ); */}
