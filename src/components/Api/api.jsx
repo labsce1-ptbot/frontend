@@ -28,7 +28,6 @@ export async function getProfile() {
 export async function saveVacation(vacation) {
   try {
     const newVacation = await axios.post(`${url}/add/new`, vacation);
-    console.log("------vacation ---", newVacation);
     return newVacation;
   } catch {
     throw new Error("Vacation could not be added");
