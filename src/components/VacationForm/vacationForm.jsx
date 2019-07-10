@@ -47,7 +47,8 @@ class VacationForm extends Component {
   state = {
     start_date: null,
     end_date: null,
-    msg: null
+    msg: null,
+    saved: false
   };
 
   updateDate = (label, date) => {
@@ -78,7 +79,8 @@ class VacationForm extends Component {
         if (res.status === 200) {
           this.props.fetchVacations(this.props.id);
           this.setState({
-            msg: null
+            msg: null,
+            saved: !this.state.saved
           });
         }
       })
@@ -93,11 +95,20 @@ class VacationForm extends Component {
 
   render() {
     const { classes } = this.props;
+    const { saved } = this.state;
     console.log("----props---->", this.props);
     return (
       <form className={classes.vacForm} onSubmit={this.submitHandler}>
-        <DatePicker dateLabel={"Start Date"} updateDate={this.updateDate} />
-        <DatePicker dateLabel={"End Date"} updateDate={this.updateDate} />
+        <DatePicker
+          dateLabel={"Start Date"}
+          updateDate={this.updateDate}
+          saved={saved}
+        />
+        <DatePicker
+          dateLabel={"End Date"}
+          updateDate={this.updateDate}
+          saved={saved}
+        />
         <TextField
           id="outlined-multiline-static"
           label="Away Message"
