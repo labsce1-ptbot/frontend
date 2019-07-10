@@ -4,7 +4,7 @@ import Button from "../CustomButtons/Button";
 import withStyles from "@material-ui/core/styles/withStyles";
 import TextField from "@material-ui/core/TextField";
 import { saveVacation } from "../../components/Api/api";
-
+import moment from "moment";
 const styles = {
   cardCategoryWhite: {
     "&,& a,& a:hover,& a:focus": {
@@ -45,16 +45,16 @@ const styles = {
 
 class VacationForm extends Component {
   state = {
-    vacationStartDate: null,
-    vacationEndDate: null,
-    message: ""
+    start_date: null,
+    end_date: null,
+    msg: null
   };
 
   updateDate = (label, date) => {
     if (label === "Start Date") {
-      label = "vacationStartDate";
+      label = "start_date";
     } else {
-      label = "vacationEndDate";
+      label = "end_date";
     }
     this.setState({
       [label]: date
@@ -63,10 +63,28 @@ class VacationForm extends Component {
 
   submitHandler = event => {
     event.preventDefault();
-    const { vacationEndDate, vacationStartDate, message } = this.state;
-    const { id } = this.props;
-    const vacay = { vacationEndDate, vacationStartDate, message, id };
-    saveVacation(vacay);
+    const { end_date, start_date, msg } = this.state;
+    const { slackID, teamID } = this.props.vacations;
+    const userID = slackID;
+    const vacay = {
+      end_date,
+      start_date,
+      msg,
+      userID,
+      teamID
+    };
+    saveVacation(vacay)
+      .then(res => {
+        if (res.status === 200) {
+          this.props.fetchVacations(this.props.id);
+          this.setState({
+            msg: null
+          });
+        }
+      })
+      .catch(err => {
+        console.log(err);
+      });
   };
 
   changeHandler = event => {
@@ -75,7 +93,7 @@ class VacationForm extends Component {
 
   render() {
     const { classes } = this.props;
-
+    console.log("----props---->", this.props);
     return (
       <form className={classes.vacForm} onSubmit={this.submitHandler}>
         <DatePicker dateLabel={"Start Date"} updateDate={this.updateDate} />
@@ -89,7 +107,7 @@ class VacationForm extends Component {
           className={classes.textField}
           margin="normal"
           variant="outlined"
-          name="message"
+          name="msg"
           onChange={this.changeHandler}
         />
         <Button type="submit" color="primary" round className={classes.saveBtn}>

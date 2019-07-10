@@ -3,7 +3,6 @@ import withStyles from "@material-ui/core/styles/withStyles";
 import MomentUtils from "@date-io/moment";
 import {
   MuiPickersUtilsProvider,
-  KeyboardTimePicker,
   KeyboardDatePicker
 } from "@material-ui/pickers";
 
