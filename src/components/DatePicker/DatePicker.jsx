@@ -3,7 +3,6 @@ import withStyles from "@material-ui/core/styles/withStyles";
 import MomentUtils from "@date-io/moment";
 import {
   MuiPickersUtilsProvider,
-  KeyboardTimePicker,
   KeyboardDatePicker
 } from "@material-ui/pickers";
 
@@ -50,13 +49,19 @@ class DatePicker extends Component {
   };
 
   componentDidUpdate(prevProps, prevState) {
-    if (prevState.setSelectedDate !== this.state.setSelectedDate) {
-      this.props.updateDate(this.props.dateLabel, this.state.setSelectedDate);
+    const { dateLabel, saved } = this.props;
+    const { setSelectedDate } = this.state;
+
+    if (prevState.setSelectedDate !== setSelectedDate) {
+      this.props.updateDate(dateLabel, setSelectedDate);
+    } else if (prevProps.saved !== saved) {
+      this.setState({
+        setSelectedDate: null
+      });
     }
   }
 
   render() {
-    console.log(this.state);
     const { selectedDate, setSelectedDate } = this.state;
     const { dateLabel, classes } = this.props;
     return (

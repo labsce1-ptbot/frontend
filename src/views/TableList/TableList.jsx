@@ -78,7 +78,6 @@ class TableList extends Component {
   }
 
   fetchVacations = id => {
-    console.log("============hell ya");
     getAllVacations(id)
       .then(res => {
         this.setState({
@@ -95,7 +94,6 @@ class TableList extends Component {
   missingProfile = () => {
     getProfile()
       .then(res => {
-        console.log("res====>", res);
         this.fetchVacations(res);
         this.setState({
           id: res
