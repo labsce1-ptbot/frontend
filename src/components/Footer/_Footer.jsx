@@ -12,7 +12,7 @@ function Footer({ ...props }) {
   return (
     <footer className={classes.footer}>
       <div className={classes.container}>
-        <div className={classes.left}>
+        {/* <div className={classes.left}>
           <List className={classes.list}>
             <ListItem className={classes.inlineBlock}>
               <a href="#home" className={classes.block}>
@@ -35,7 +35,7 @@ function Footer({ ...props }) {
               </a>
             </ListItem>
           </List>
-        </div>
+        </div> */}
         <Link
           to={
             newRoute[newRoute.length - 1].layout +
