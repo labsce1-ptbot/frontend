@@ -58,7 +58,7 @@ class Vacations extends Component {
   state = {
     vacations: [],
     error: false,
-    id: null
+    id: "5d166904682cfb06b8c347c0"
   };
 
   componentDidMount() {
@@ -76,7 +76,6 @@ class Vacations extends Component {
   }
 
   fetchVacations = id => {
-    console.log("============hell ya");
     getAllVacations(id)
       .then(res => {
         this.setState({
@@ -93,7 +92,6 @@ class Vacations extends Component {
   missingProfile = () => {
     getProfile()
       .then(res => {
-        console.log("res====>", res);
         this.fetchVacations(res);
         this.setState({
           id: res
@@ -107,7 +105,7 @@ class Vacations extends Component {
   };
 
   render() {
-    console.log("props tablelist", this.state);
+    console.log("vacations===", this.state);
     const { classes } = this.props;
     const { vacations, id } = this.state;
     return (
@@ -135,7 +133,11 @@ class Vacations extends Component {
             <CardHeader color="primary">
               <h4 className={classes.cardTitleWhite}>Schedule a Vacation</h4>
             </CardHeader>
-            <VacationForm id={id} fetchVacations={this.fetchVacations} />
+            <VacationForm
+              id={id}
+              vacations={vacations[0]}
+              fetchVacations={this.fetchVacations}
+            />
           </Card>
         </GridItem>
       </GridContainer>

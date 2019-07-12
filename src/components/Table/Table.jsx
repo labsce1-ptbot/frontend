@@ -34,8 +34,7 @@ function CustomTable({ ...props }) {
           </TableHead>
         ) : null}
         <TableBody>
-          {tableData.map((prop, key) => {
-            console.log("djfdlakfjkladkfladkljfakdlfj", prop);
+          {tableData.map(prop => {
             return (
               <TableRow key={prop._id}>
                 {/* {prop.map((prop, key) => {
@@ -48,7 +47,7 @@ function CustomTable({ ...props }) {
                 </TableCell>
                 <TableCell className={classes.tableCell}>
                   {prop.message.length > 0
-                    ? prop.message[0]
+                    ? prop.message[0].custom_message
                     : "No Saved Message"}
                 </TableCell>
                 {/* ); */}
@@ -77,8 +76,8 @@ CustomTable.propTypes = {
     "rose",
     "gray"
   ]),
-  tableHead: PropTypes.arrayOf(PropTypes.string),
-  tableData: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.string))
+  tableHead: PropTypes.arrayOf(PropTypes.string)
+  // tableData: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.string))
 };
 
 export default withStyles(tableStyle)(CustomTable);
