@@ -14,7 +14,7 @@ export async function getAllVacations(id) {
 export async function getProfile() {
   let userRequest;
   try {
-    userRequest = await axios.get(`${url}/profile`, {
+    userRequest = await axios.get(`${url}/user/profile`, {
       withCredentials: true
     });
   } catch ({ response }) {
@@ -25,7 +25,7 @@ export async function getProfile() {
 
 export async function saveVacation(vacation) {
   try {
-    const newVacation = await axios.post(`${url}/add/new`, vacation);
+    const newVacation = await axios.post(`${url}/user/add/new`, vacation);
     return newVacation;
   } catch {
     throw new Error("Vacation could not be added");
