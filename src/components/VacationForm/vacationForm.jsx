@@ -75,6 +75,7 @@ class VacationForm extends Component {
       slackRef,
       email
     };
+    // console.log("<----save--form->", vacay);
     saveVacation(vacay)
       .then(res => {
         if (res.status === 200) {
