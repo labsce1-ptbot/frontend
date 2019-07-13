@@ -4,7 +4,7 @@ import Button from "../CustomButtons/Button";
 import withStyles from "@material-ui/core/styles/withStyles";
 import TextField from "@material-ui/core/TextField";
 import { saveVacation } from "../../components/Api/api";
-
+import moment from "moment";
 const styles = {
   cardCategoryWhite: {
     "&,& a,& a:hover,& a:focus": {
@@ -45,16 +45,17 @@ const styles = {
 
 class VacationForm extends Component {
   state = {
-    vacationStartDate: null,
-    vacationEndDate: null,
-    message: ""
+    start_date: null,
+    end_date: null,
+    msg: null,
+    saved: false
   };
 
   updateDate = (label, date) => {
     if (label === "Start Date") {
-      label = "vacationStartDate";
+      label = "start_date";
     } else {
-      label = "vacationEndDate";
+      label = "end_date";
     }
     this.setState({
       [label]: date
@@ -63,10 +64,29 @@ class VacationForm extends Component {
 
   submitHandler = event => {
     event.preventDefault();
-    const { vacationEndDate, vacationStartDate, message } = this.state;
-    const { id } = this.props;
-    const vacay = { vacationEndDate, vacationStartDate, message, id };
-    saveVacation(vacay);
+    const { end_date, start_date, msg } = this.state;
+    const { id, slackRef } = this.props;
+    // const userID = slackID;
+    const vacay = {
+      end_date,
+      start_date,
+      msg,
+      id,
+      slackRef
+    };
+    saveVacation(vacay)
+      .then(res => {
+        if (res.status === 200) {
+          this.props.fetchVacations(this.props.id);
+          this.setState({
+            msg: null,
+            saved: !this.state.saved
+          });
+        }
+      })
+      .catch(err => {
+        console.log(err);
+      });
   };
 
   changeHandler = event => {
@@ -75,11 +95,20 @@ class VacationForm extends Component {
 
   render() {
     const { classes } = this.props;
+    const { saved } = this.state;
 
     return (
       <form className={classes.vacForm} onSubmit={this.submitHandler}>
-        <DatePicker dateLabel={"Start Date"} updateDate={this.updateDate} />
-        <DatePicker dateLabel={"End Date"} updateDate={this.updateDate} />
+        <DatePicker
+          dateLabel={"Start Date"}
+          updateDate={this.updateDate}
+          saved={saved}
+        />
+        <DatePicker
+          dateLabel={"End Date"}
+          updateDate={this.updateDate}
+          saved={saved}
+        />
         <TextField
           id="outlined-multiline-static"
           label="Away Message"
@@ -89,7 +118,7 @@ class VacationForm extends Component {
           className={classes.textField}
           margin="normal"
           variant="outlined"
-          name="message"
+          name="msg"
           onChange={this.changeHandler}
         />
         <Button type="submit" color="primary" round className={classes.saveBtn}>
