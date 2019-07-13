@@ -92,7 +92,6 @@ class Dashboard extends React.Component {
   };
   async componentDidMount() {
     const { history } = this.props;
-
     if (navigator.platform.indexOf("Win") > -1) {
       const ps = new PerfectScrollbar(this.refs.mainPanel);
     }
@@ -101,9 +100,7 @@ class Dashboard extends React.Component {
     let getSessionRequest;
     try {
       getSessionRequest = await axios.get(
-        // `http://${REACT_APP_SERVER_URL}/get-session`,
-        // "http://localhost:3000/profile",
-        `${process.env.REACT_APP_SERVER_URL}/profile`,
+        `${process.env.REACT_APP_SERVER_URL}/user/profile`,
         {
           withCredentials: true
         }

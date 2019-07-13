@@ -62,7 +62,7 @@ class UserProfile extends React.Component {
   async componentDidMount() {
     let userRequest;
     try {
-      userRequest = await axios.get(`${REACT_APP_SERVER_URL}/profile`, {
+      userRequest = await axios.get(`${REACT_APP_SERVER_URL}/user/profile`, {
         withCredentials: true
       });
     } catch ({ response }) {
