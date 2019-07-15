@@ -109,8 +109,8 @@ class Vacations extends Component {
   };
 
   render() {
-    console.log("vacations===", this.state);
-    console.log("vacay props===", this.props[0]);
+    // console.log("vacations===", this.state);
+    // console.log("vacay props===", this.props[0]);
     const { classes } = this.props;
     const { vacations, id, slackRef, email } = this.state;
     return (

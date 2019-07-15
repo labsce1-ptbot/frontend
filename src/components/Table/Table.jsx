@@ -13,7 +13,7 @@ import moment from "moment";
 
 function CustomTable({ ...props }) {
   const { classes, tableHead, tableData, tableHeaderColor } = props;
-  console.log("table", tableData);
+  // console.log("table", tableData);
   return (
     <div className={classes.tableResponsive}>
       <Table className={classes.table}>
