@@ -58,7 +58,9 @@ class Vacations extends Component {
   state = {
     vacations: [],
     error: false,
-    id: "5d166904682cfb06b8c347c0"
+    id: null,
+    slackRef: null,
+    email: null
   };
 
   componentDidMount() {
@@ -69,10 +71,10 @@ class Vacations extends Component {
     } else {
       this.fetchVacations(this.props[0]._id);
       this.setState({
-        id: this.props[0]._id
+        id: this.props[0]._id,
+        slackRef: this.props[0].slack[0]
       });
     }
-    console.log(this.props);
   }
 
   fetchVacations = id => {
@@ -92,9 +94,11 @@ class Vacations extends Component {
   missingProfile = () => {
     getProfile()
       .then(res => {
-        this.fetchVacations(res);
+        this.fetchVacations(res._id);
         this.setState({
-          id: res
+          id: res._id,
+          slackRef: res.slack[0],
+          email: res.email
         });
       })
       .catch(err => {
@@ -106,8 +110,9 @@ class Vacations extends Component {
 
   render() {
     console.log("vacations===", this.state);
+    console.log("vacay props===", this.props[0]);
     const { classes } = this.props;
-    const { vacations, id } = this.state;
+    const { vacations, id, slackRef, email } = this.state;
     return (
       <GridContainer>
         <GridItem xs={12} sm={12} md={8}>
@@ -135,6 +140,8 @@ class Vacations extends Component {
             </CardHeader>
             <VacationForm
               id={id}
+              slackRef={slackRef}
+              email={this.props[0] !== undefined ? this.props[0].email : email}
               vacations={vacations[0]}
               fetchVacations={this.fetchVacations}
             />

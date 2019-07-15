@@ -65,21 +65,23 @@ class VacationForm extends Component {
   submitHandler = event => {
     event.preventDefault();
     const { end_date, start_date, msg } = this.state;
-    const { slackID, teamID } = this.props.vacations;
-    const userID = slackID;
+    const { id, slackRef, email } = this.props;
+    // const userID = slackID;
     const vacay = {
       end_date,
       start_date,
       msg,
-      userID,
-      teamID
+      id,
+      slackRef,
+      email
     };
+    // console.log("<----save--form->", vacay);
     saveVacation(vacay)
       .then(res => {
         if (res.status === 200) {
           this.props.fetchVacations(this.props.id);
           this.setState({
-            msg: null,
+            msg: "",
             saved: !this.state.saved
           });
         }
@@ -96,7 +98,7 @@ class VacationForm extends Component {
   render() {
     const { classes } = this.props;
     const { saved } = this.state;
-    console.log("----props---->", this.props);
+    console.log("here", this.props);
     return (
       <form className={classes.vacForm} onSubmit={this.submitHandler}>
         <DatePicker
@@ -119,6 +121,7 @@ class VacationForm extends Component {
           margin="normal"
           variant="outlined"
           name="msg"
+          value={this.state.msg}
           onChange={this.changeHandler}
         />
         <Button type="submit" color="primary" round className={classes.saveBtn}>
