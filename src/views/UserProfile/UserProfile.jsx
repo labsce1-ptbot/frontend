@@ -76,75 +76,76 @@ class UserProfile extends React.Component {
     });
   }
   render() {
-    console.log("state", this.state);
+    console.log("state", this.state.user.slack);
     const { classes, name, email } = this.props;
     const { errors, user } = this.state;
 
-    if (user.length === 0 || user.slack.length === 0) {
+    if (this.state.user.slack === undefined) {
       return <Loader />;
-    }
-    return (
-      <div>
-        <GridContainer>
-          <GridItem xs={12} sm={12} md={8}>
-            <form onSubmit={this.updateProfile}>
-              <Card>
-                <CardHeader color="primary">
-                  <h4 className={classes.cardTitleWhite}>Profile Info</h4>
-                </CardHeader>
-                <CardBody>
-                  <GridContainer>
-                    <GridItem xs={12} sm={12} md={5}>
-                      <h2 className={classes.cardHeaderBlack}>
-                        Email: {this.state.user.email}
-                      </h2>
-                      <h2 className={classes.cardHeaderBlack}>
-                        First Name: {this.state.user.first_name}
-                      </h2>
-                    </GridItem>
-                    <GridItem xs={12} sm={12} md={5}>
-                      <h2 className={classes.cardHeaderBlack}>
-                        Username: {this.state.user.username}
-                      </h2>
-                      <h2 className={classes.cardHeaderBlack}>
-                        Last Name: {this.state.user.last_name}
-                      </h2>
-
-                      {this.state.user.slack ? (
-                        "Linked"
-                      ) : (
+    } else {
+      return (
+        <div>
+          <GridContainer>
+            <GridItem xs={12} sm={12} md={8}>
+              <form onSubmit={this.updateProfile}>
+                <Card>
+                  <CardHeader color="primary">
+                    <h4 className={classes.cardTitleWhite}>Profile Info</h4>
+                  </CardHeader>
+                  <CardBody>
+                    <GridContainer>
+                      <GridItem xs={12} sm={12} md={5}>
                         <h2 className={classes.cardHeaderBlack}>
-                          Link Slack:
-                          <a href={url}>
-                            <img src="https://api.slack.com/img/sign_in_with_slack.png" />
-                          </a>
+                          Email: {this.state.user.email}
                         </h2>
-                      )}
-                    </GridItem>
-                  </GridContainer>
+                        <h2 className={classes.cardHeaderBlack}>
+                          First Name: {this.state.user.first_name}
+                        </h2>
+                      </GridItem>
+                      <GridItem xs={12} sm={12} md={5}>
+                        <h2 className={classes.cardHeaderBlack}>
+                          Username: {this.state.user.username}
+                        </h2>
+                        <h2 className={classes.cardHeaderBlack}>
+                          Last Name: {this.state.user.last_name}
+                        </h2>
+
+                        {this.state.user.slack.length > 0 ? (
+                          "Linked"
+                        ) : (
+                          <h2 className={classes.cardHeaderBlack}>
+                            Link Slack:
+                            <a href={url}>
+                              <img src="https://api.slack.com/img/sign_in_with_slack.png" />
+                            </a>
+                          </h2>
+                        )}
+                      </GridItem>
+                    </GridContainer>
+                  </CardBody>
+                  <CardFooter />
+                </Card>
+              </form>
+            </GridItem>
+            <GridItem xs={12} sm={12} md={4}>
+              <Card profile>
+                <CardAvatar profile>
+                  <a href="#pablo" onClick={e => e.preventDefault()}>
+                    <img src={this.state.user.picture} alt="..." />
+                  </a>
+                </CardAvatar>
+                <CardBody profile>
+                  <h2 className={classes.cardHeaderBlack}>Google Calendar:</h2>
+                  <Button color="primary" round>
+                    Connect
+                  </Button>
                 </CardBody>
-                <CardFooter />
               </Card>
-            </form>
-          </GridItem>
-          <GridItem xs={12} sm={12} md={4}>
-            <Card profile>
-              <CardAvatar profile>
-                <a href="#pablo" onClick={e => e.preventDefault()}>
-                  <img src={this.state.user.picture} alt="..." />
-                </a>
-              </CardAvatar>
-              <CardBody profile>
-                <h2 className={classes.cardHeaderBlack}>Google Calendar:</h2>
-                <Button color="primary" round>
-                  Connect
-                </Button>
-              </CardBody>
-            </Card>
-          </GridItem>
-        </GridContainer>
-      </div>
-    );
+            </GridItem>
+          </GridContainer>
+        </div>
+      );
+    }
   }
 }
 
