@@ -12,7 +12,6 @@ import Login from "@material-ui/icons/LockOpen";
 import DashboardPage from "./views/Dashboard/Dashboard.jsx";
 import UserProfile from "./views/UserProfile/UserProfile.jsx";
 import TableList from "./views/TableList/TableList.jsx";
-import Icons from "./views/Icons/Icons.jsx";
 import NotificationsPage from "./views/Notifications/Notifications.jsx";
 import LoginPage from "./views/Pages/LoginPage.jsx";
 import RegisterPage from "./views/Pages/RegisterPage.jsx";
