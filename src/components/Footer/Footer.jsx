@@ -15,8 +15,7 @@ function Footer({ ...props }) {
   const { classes, newRoute } = props;
   console.log("props=====", props);
   return (
-    <footer className={classes.footer}>
-      <div className={classes.container}>
+    <footer className="footer">
         <Link
           to={
             newRoute[newRoute.length - 1].layout +
@@ -24,9 +23,10 @@ function Footer({ ...props }) {
           }
           activeClassName="active"
         >
-          <p className={classes.right}>Terms of Service and Privacy Policy</p>
+        <div className="footer-policy">
+          Terms of Service and Privacy Policy
+        </div>
         </Link>
-      </div>
     </footer>
   );
 }

@@ -193,12 +193,16 @@ label {
 
 /* Footer */
 
+/* footer {
+  padding: 15px;
+} */
 
-
-footer {
-  padding: 15px 0;
+.footer-policy {
   border: solid red 1px;
+  float: right; 
+  max-width: max-content;
 }
+
 
 footer ul {
   margin-bottom: 0;
