@@ -14,6 +14,7 @@ import CardBody from "../../components/Card/CardBody.jsx";
 import CardFooter from "../../components/Card/CardFooter.jsx";
 
 import avatar from "../../assets/img/faces/marc.jpg";
+import Loader from "../../components/loader/loader.jsx";
 
 const url = `https://slack.com/oauth/authorize?client_id=${
   process.env.REACT_APP_clientId
@@ -77,7 +78,11 @@ class UserProfile extends React.Component {
   render() {
     console.log("state", this.state);
     const { classes, name, email } = this.props;
-    const { errors } = this.state;
+    const { errors, user } = this.state;
+
+    if (user.length === 0 || user.slack.length === 0) {
+      return <Loader />;
+    }
     return (
       <div>
         <GridContainer>
@@ -103,16 +108,18 @@ class UserProfile extends React.Component {
                       </h2>
                       <h2 className={classes.cardHeaderBlack}>
                         Last Name: {this.state.user.last_name}
-                        </h2>
-                      
-                      {this.state.user.slack ? "Linked" : <h2 className={classes.cardHeaderBlack}>
-                        Link Slack:
+                      </h2>
+
+                      {this.state.user.slack ? (
+                        "Linked"
+                      ) : (
+                        <h2 className={classes.cardHeaderBlack}>
+                          Link Slack:
                           <a href={url}>
                             <img src="https://api.slack.com/img/sign_in_with_slack.png" />
                           </a>
-                        }
-                      </h2>
-                      }
+                        </h2>
+                      )}
                     </GridItem>
                   </GridContainer>
                 </CardBody>
@@ -128,15 +135,9 @@ class UserProfile extends React.Component {
                 </a>
               </CardAvatar>
               <CardBody profile>
-                <h6 className={classes.cardCategory}>CEO / CO-FOUNDER</h6>
-                <h4 className={classes.cardTitle}>Alec Thompson</h4>
-                <p className={classes.description}>
-                  Don't be scared of the truth because we need to restart the
-                  human foundation in truth And I love you like Kanye loves
-                  Kanye I love Rick Owens’ bed design but the back is...
-                </p>
+                <h2 className={classes.cardHeaderBlack}>Google Calendar:</h2>
                 <Button color="primary" round>
-                  Follow
+                  Connect
                 </Button>
               </CardBody>
             </Card>
