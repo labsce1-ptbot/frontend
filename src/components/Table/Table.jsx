@@ -10,6 +10,7 @@ import TableCell from "@material-ui/core/TableCell";
 // core components
 import tableStyle from "../../assets/jss/material-dashboard-react/components/tableStyle.jsx";
 import moment from "moment";
+import { Icon } from "@material-ui/core";
 
 function CustomTable({ ...props }) {
   const { classes, tableHead, tableData, tableHeaderColor } = props;
@@ -49,6 +50,11 @@ function CustomTable({ ...props }) {
                   {prop.message.length > 0
                     ? prop.message[0].custom_message
                     : "No Saved Message"}
+                </TableCell>
+                <TableCell className={classes.tableCell}>
+                  <Icon id="deleteVacay" className={classes.deleteVacay}>
+                    delete_outlined
+                  </Icon>
                 </TableCell>
                 {/* ); */}
                 {/* })} */}

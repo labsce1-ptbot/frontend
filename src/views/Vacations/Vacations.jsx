@@ -15,6 +15,7 @@ import Button from "../../components/CustomButtons/Button";
 import "../../assets/css/calendar.css";
 import VacationForm from "../../components/VacationForm/vacationForm.jsx";
 import { Typography } from "@material-ui/core";
+import Loader from "../../components/loader/loader.jsx";
 
 const styles = {
   cardCategoryWhite: {
@@ -60,7 +61,8 @@ class Vacations extends Component {
     error: false,
     id: null,
     slackRef: null,
-    email: null
+    email: null,
+    requestRec: false
   };
 
   componentDidMount() {
@@ -81,7 +83,8 @@ class Vacations extends Component {
     getAllVacations(id)
       .then(res => {
         this.setState({
-          vacations: res.data
+          vacations: res.data,
+          requestRec: true
         });
       })
       .catch(err => {
@@ -112,7 +115,7 @@ class Vacations extends Component {
     // console.log("vacations===", this.state);
     // console.log("vacay props===", this.props[0]);
     const { classes } = this.props;
-    const { vacations, id, slackRef, email } = this.state;
+    const { vacations, id, slackRef, email, requestRec } = this.state;
     return (
       <GridContainer>
         <GridItem xs={12} sm={12} md={8}>
@@ -124,11 +127,15 @@ class Vacations extends Component {
               </p>
             </CardHeader>
             <CardBody>
-              <Table
-                tableHeaderColor="primary"
-                tableHead={["Start Date", "End Date", "Message"]}
-                tableData={vacations}
-              />
+              {!requestRec ? (
+                <Loader />
+              ) : (
+                <Table
+                  tableHeaderColor="primary"
+                  tableHead={["Start Date", "End Date", "Message", "Actions"]}
+                  tableData={vacations}
+                />
+              )}
               {vacations.length > 0 ? null : "No Vacations Scheduled"}
             </CardBody>
           </Card>
