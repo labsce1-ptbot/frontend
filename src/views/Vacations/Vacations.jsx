@@ -14,7 +14,7 @@ import TextField from "@material-ui/core/TextField";
 import Button from "../../components/CustomButtons/Button";
 import "../../assets/css/calendar.css";
 import VacationForm from "../../components/VacationForm/vacationForm.jsx";
-import { Typography } from "@material-ui/core";
+
 import Loader from "../../components/loader/loader.jsx";
 
 const styles = {
