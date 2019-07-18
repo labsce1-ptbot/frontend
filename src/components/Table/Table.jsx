@@ -7,14 +7,35 @@ import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import TableBody from "@material-ui/core/TableBody";
 import TableCell from "@material-ui/core/TableCell";
+import { deleteVacation } from "../Api/api.jsx";
 // core components
 import tableStyle from "../../assets/jss/material-dashboard-react/components/tableStyle.jsx";
 import moment from "moment";
 import { Icon } from "@material-ui/core";
 
 function CustomTable({ ...props }) {
-  const { classes, tableHead, tableData, tableHeaderColor } = props;
+  const {
+    classes,
+    tableHead,
+    tableData,
+    tableHeaderColor,
+    userId,
+    fetchVacations
+  } = props;
   // console.log("table", tableData);
+
+  const removeVacation = id => {
+    deleteVacation(id)
+      .then(res => {
+        if (res) {
+          fetchVacations(userId);
+        }
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  };
+
   return (
     <div className={classes.tableResponsive}>
       <Table className={classes.table}>
@@ -52,7 +73,11 @@ function CustomTable({ ...props }) {
                     : "No Saved Message"}
                 </TableCell>
                 <TableCell className={classes.tableCell}>
-                  <Icon id="deleteVacay" className={classes.deleteVacay}>
+                  <Icon
+                    id="deleteVacay"
+                    className={classes.deleteVacay}
+                    onClick={() => removeVacation(prop._id)}
+                  >
                     delete_outlined
                   </Icon>
                 </TableCell>

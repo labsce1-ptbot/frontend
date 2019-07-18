@@ -111,8 +111,10 @@ class Vacations extends Component {
       });
   };
 
+  removeVacation = () => {};
+
   render() {
-    // console.log("vacations===", this.state);
+    console.log("vacations===> State", this.state);
     // console.log("vacay props===", this.props[0]);
     const { classes } = this.props;
     const { vacations, id, slackRef, email, requestRec } = this.state;
@@ -134,6 +136,8 @@ class Vacations extends Component {
                   tableHeaderColor="primary"
                   tableHead={["Start Date", "End Date", "Message", "Actions"]}
                   tableData={vacations}
+                  fetchVacations={this.fetchVacations}
+                  userId={id}
                 />
               )}
               {vacations.length > 0 ? null : "No Vacations Scheduled"}

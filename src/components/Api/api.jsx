@@ -32,3 +32,13 @@ export async function saveVacation(vacation) {
     throw new Error("Vacation could not be added");
   }
 }
+
+export async function deleteVacation(id) {
+  try {
+    const count = await axios.delete(`${url}/user/delete/${id}`);
+
+    return count;
+  } catch {
+    throw new Error("Vacation could not deleted");
+  }
+}
