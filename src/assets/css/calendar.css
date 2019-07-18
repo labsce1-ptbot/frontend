@@ -26,3 +26,7 @@ span {
 #deleteVacay:hover {
   cursor: pointer;
 }
+
+.CustomTable-tableResponsive-485 {
+  padding: 4px;
+}
