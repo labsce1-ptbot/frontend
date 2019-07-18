@@ -47,6 +47,10 @@ const styles = {
     textDecoration: "none",
     fontSize: "12px",
     paddingBottom: "10px"
+  },
+
+  loading: {
+    textAlign: "center"
   }
 };
 
@@ -80,8 +84,12 @@ class UserProfile extends React.Component {
     const { classes, name, email } = this.props;
     const { errors, user } = this.state;
 
-    if (this.state.user.slack === undefined) {
-      return <Loader />;
+    if (user.slack === undefined) {
+      return (
+        <div className={classes.loading}>
+          <Loader />
+        </div>
+      );
     } else {
       return (
         <div>
