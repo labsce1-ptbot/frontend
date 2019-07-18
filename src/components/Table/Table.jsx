@@ -118,7 +118,7 @@ class CustomTable extends Component {
             <TableRow>
               <TablePagination
                 rowsPerPageOptions={[5, 10, 25]}
-                colSpan={3}
+                colSpan={5}
                 count={tableData.length}
                 rowsPerPage={rowsPerPage}
                 page={this.state.page}
