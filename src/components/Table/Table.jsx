@@ -114,7 +114,7 @@ class CustomTable extends Component {
                 );
               })}
           </TableBody>
-          <TableFooter>
+          <TableFooter className={classes.tableFooter}>
             <TableRow>
               <TablePagination
                 rowsPerPageOptions={[5, 10, 25]}
