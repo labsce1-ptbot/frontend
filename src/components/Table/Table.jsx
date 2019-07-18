@@ -123,8 +123,7 @@ class CustomTable extends Component {
                 rowsPerPage={rowsPerPage}
                 page={this.state.page}
                 SelectProps={{
-                  inputProps: { "aria-label": "Rows Per Page" },
-                  native: true
+                  inputProps: { "aria-label": "Rows Per Page" }
                 }}
                 onChangePage={this.handleChangePage}
                 nextIconButtonProps={{
