@@ -57,8 +57,10 @@ const tableStyle = theme => ({
     overflow: "hidden"
   },
   loaderHeader: {
+    display: "block",
     fontSize: "20px",
-    color: "black"
+    color: "black",
+    paddingTop: "10px"
   }
 });
 

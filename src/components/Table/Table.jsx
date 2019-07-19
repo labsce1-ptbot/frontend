@@ -78,7 +78,7 @@ class CustomTable extends Component {
               </TableRow>
             </TableHead>
           ) : null}
-          {this.props.tableData.length === 0 ?  <h1 className={classes.loaderHeader}>No Vacations Scheduled</h1> : (
+          {this.props.tableData.length === 0 ? <h1 className={classes.loaderHeader}>No Vacations Scheduled</h1> : (
           <TableBody>
             {tableData
               .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)

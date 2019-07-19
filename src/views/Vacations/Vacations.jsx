@@ -139,7 +139,6 @@ class Vacations extends Component {
                   tableData={vacations}
                   fetchVacations={this.fetchVacations}
                   userId={id}
-                  vacationResponse={requestRec}
                 />
             }
             </CardBody>
