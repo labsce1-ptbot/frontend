@@ -154,14 +154,18 @@ class UserProfile extends React.Component {
                 </CardAvatar>
                 <CardBody profile>
                   <h2 className={classes.cardHeaderBlack}>Google Calendar:</h2>
-                  <a
-                    href={`${REACT_APP_SERVER_URL}/googlecal/user`}
-                    className={classes.googleCalLink}
-                  >
-                    <Button color="primary" round>
-                      <p className={classes.googleCalLink}>Connect</p>
-                    </Button>
-                  </a>
+                  {user.google_access_token === null ? (
+                    <a
+                      href={`${REACT_APP_SERVER_URL}/googlecal/user`}
+                      className={classes.googleCalLink}
+                    >
+                      <Button color="primary" round>
+                        <p className={classes.googleCalLink}>Connect</p>
+                      </Button>
+                    </a>
+                  ) : (
+                    "Linked"
+                  )}
                 </CardBody>
               </Card>
             </GridItem>
