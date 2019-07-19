@@ -12,8 +12,9 @@ import { getAllVacations, getProfile } from "../../components/Api/api";
 import DatePicker from "../../components/DatePicker/DatePicker.jsx";
 import TextField from "@material-ui/core/TextField";
 import Button from "../../components/CustomButtons/Button";
+import Loader from "../../components/loader/loader.jsx";
 import "../../assets/css/calendar.css";
-import axios from "axios";
+
 
 const styles = {
   cardCategoryWhite: {

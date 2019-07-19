@@ -55,6 +55,10 @@ const tableStyle = theme => ({
     width: "100%",
     marginTop: theme.spacing.unit * 3,
     overflow: "hidden"
+  },
+  loaderHeader: {
+    fontSize: "20px",
+    color: "black"
   }
 });
 

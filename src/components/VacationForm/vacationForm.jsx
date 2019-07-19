@@ -4,7 +4,7 @@ import Button from "../CustomButtons/Button";
 import withStyles from "@material-ui/core/styles/withStyles";
 import TextField from "@material-ui/core/TextField";
 import { saveVacation } from "../../components/Api/api";
-import moment from "moment";
+
 const styles = {
   cardCategoryWhite: {
     "&,& a,& a:hover,& a:focus": {

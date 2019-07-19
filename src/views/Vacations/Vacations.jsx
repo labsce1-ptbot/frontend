@@ -9,13 +9,10 @@ import Card from "../../components/Card/Card.jsx";
 import CardHeader from "../../components/Card/CardHeader.jsx";
 import CardBody from "../../components/Card/CardBody.jsx";
 import { getAllVacations, getProfile } from "../../components/Api/api";
-import DatePicker from "../../components/DatePicker/DatePicker.jsx";
-import TextField from "@material-ui/core/TextField";
-import Button from "../../components/CustomButtons/Button";
 import "../../assets/css/calendar.css";
 import VacationForm from "../../components/VacationForm/vacationForm.jsx";
-
 import Loader from "../../components/loader/loader.jsx";
+import Switch from "@material-ui/core/Switch";
 
 const styles = {
   cardCategoryWhite: {
@@ -52,6 +49,11 @@ const styles = {
 
   textField: {
     width: "100%"
+  },
+  loaderCenter: {
+    position: "fixed",
+    left: "0px",
+    top: "0px"
   }
 };
 
@@ -62,7 +64,8 @@ class Vacations extends Component {
     id: null,
     slackRef: null,
     email: null,
-    requestRec: false
+    requestRec: false,
+    alert: false
   };
 
   componentDidMount() {
@@ -129,18 +132,16 @@ class Vacations extends Component {
               </p>
             </CardHeader>
             <CardBody>
-              {!requestRec ? (
-                <Loader />
-              ) : (
+            {!requestRec ? <Loader className={classes.loaderCenter}/> :
                 <Table
                   tableHeaderColor="primary"
                   tableHead={["Start Date", "End Date", "Message", "Actions"]}
                   tableData={vacations}
                   fetchVacations={this.fetchVacations}
                   userId={id}
+                  vacationResponse={requestRec}
                 />
-              )}
-              {vacations.length > 0 ? null : "No Vacations Scheduled"}
+            }
             </CardBody>
           </Card>
         </GridItem>
@@ -149,6 +150,9 @@ class Vacations extends Component {
             <CardHeader color="primary">
               <h4 className={classes.cardTitleWhite}>Schedule a Vacation</h4>
             </CardHeader>
+            <Switch checked={this.state.alert}
+            value="off"
+            />
             <VacationForm
               id={id}
               slackRef={slackRef}
