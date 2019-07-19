@@ -51,9 +51,10 @@ const styles = {
     width: "100%"
   },
   loaderCenter: {
-    position: "fixed",
-    left: "0px",
-    top: "0px"
+    color: "purple",
+    position: "relative",
+    top: "20px",
+    left: "46%"
   }
 };
 
@@ -131,17 +132,17 @@ class Vacations extends Component {
                 Here is a subtitle for this table
               </p>
             </CardHeader>
+            {!requestRec ? <CardBody><Loader classes={classes.loaderCenter}/></CardBody> :
             <CardBody>
-            {!requestRec ? <Loader className={classes.loaderCenter}/> :
-                <Table
+            <Table
                   tableHeaderColor="primary"
                   tableHead={["Start Date", "End Date", "Message", "Actions"]}
                   tableData={vacations}
                   fetchVacations={this.fetchVacations}
                   userId={id}
                 />
+              </CardBody>
             }
-            </CardBody>
           </Card>
         </GridItem>
         <GridItem xs={12} sm={12} md={4}>
