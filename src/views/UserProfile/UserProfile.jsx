@@ -78,15 +78,21 @@ class UserProfile extends React.Component {
     }
 
     console.log("User Request", userRequest.data);
-    await this.setState({
-      user: userRequest.data.userInfo[0]
-    });
+    if (!userRequest.data.userInfo[0] && userRequest.data.userInfo) {
+      await this.setState({
+        user: userRequest.data.userInfo
+      });
+    } else {
+      await this.setState({
+        user: userRequest.data.userInfo[0]
+      });
+    }
   }
 
   render() {
-    console.log("state", this.state.user.slack);
     const { classes, name, email } = this.props;
     const { errors, user } = this.state;
+    console.log("state", this.state);
 
     if (user.slack === undefined) {
       return (
