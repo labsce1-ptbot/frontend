@@ -51,6 +51,9 @@ const styles = {
 
   loading: {
     textAlign: "center"
+  },
+  googleCalLink: {
+    color: "white"
   }
 };
 
@@ -74,11 +77,12 @@ class UserProfile extends React.Component {
       userRequest = response;
     }
 
-    console.log("User Request", userRequest.data.userInfo[0]);
+    console.log("User Request", userRequest.data);
     await this.setState({
       user: userRequest.data.userInfo[0]
     });
   }
+
   render() {
     console.log("state", this.state.user.slack);
     const { classes, name, email } = this.props;
@@ -144,9 +148,14 @@ class UserProfile extends React.Component {
                 </CardAvatar>
                 <CardBody profile>
                   <h2 className={classes.cardHeaderBlack}>Google Calendar:</h2>
-                  <Button color="primary" round>
-                    Connect
-                  </Button>
+                  <a
+                    href={`${REACT_APP_SERVER_URL}/googlecal/user`}
+                    className={classes.googleCalLink}
+                  >
+                    <Button color="primary" round>
+                      <p className={classes.googleCalLink}>Connect</p>
+                    </Button>
+                  </a>
                 </CardBody>
               </Card>
             </GridItem>
