@@ -121,7 +121,7 @@ class VacationForm extends Component {
           variant="outlined"
           name="msg"
           value={this.state.msg}
-          onChange={this.changeHandler}
+            onChange={this.changeHandler}
         />
         <Button type="submit" color="primary" round className={classes.saveBtn}>
           Save
