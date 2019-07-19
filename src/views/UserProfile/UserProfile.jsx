@@ -14,6 +14,7 @@ import CardBody from "../../components/Card/CardBody.jsx";
 import CardFooter from "../../components/Card/CardFooter.jsx";
 
 import avatar from "../../assets/img/faces/marc.jpg";
+import Loader from "../../components/loader/loader.jsx";
 
 const url = `https://slack.com/oauth/authorize?client_id=${
   process.env.REACT_APP_clientId
@@ -46,6 +47,10 @@ const styles = {
     textDecoration: "none",
     fontSize: "12px",
     paddingBottom: "10px"
+  },
+
+  loading: {
+    textAlign: "center"
   }
 };
 
@@ -75,75 +80,80 @@ class UserProfile extends React.Component {
     });
   }
   render() {
-    console.log("state", this.state);
+    console.log("state", this.state.user.slack);
     const { classes, name, email } = this.props;
-    const { errors } = this.state;
-    return (
-      <div>
-        <GridContainer>
-          <GridItem xs={12} sm={12} md={8}>
-            <form onSubmit={this.updateProfile}>
-              <Card>
-                <CardHeader color="primary">
-                  <h4 className={classes.cardTitleWhite}>Profile Info</h4>
-                </CardHeader>
-                <CardBody>
-                  <GridContainer>
-                    <GridItem xs={12} sm={12} md={5}>
-                      <h2 className={classes.cardHeaderBlack}>
-                        Email: {this.state.user.email}
-                      </h2>
-                      <h2 className={classes.cardHeaderBlack}>
-                        First Name: {this.state.user.first_name}
-                      </h2>
-                    </GridItem>
-                    <GridItem xs={12} sm={12} md={5}>
-                      <h2 className={classes.cardHeaderBlack}>
-                        Username: {this.state.user.username}
-                      </h2>
-                      <h2 className={classes.cardHeaderBlack}>
-                        Last Name: {this.state.user.last_name}
+    const { errors, user } = this.state;
+
+    if (user.slack === undefined) {
+      return (
+        <div className={classes.loading}>
+          <Loader />
+        </div>
+      );
+    } else {
+      return (
+        <div>
+          <GridContainer>
+            <GridItem xs={12} sm={12} md={8}>
+              <form onSubmit={this.updateProfile}>
+                <Card>
+                  <CardHeader color="primary">
+                    <h4 className={classes.cardTitleWhite}>Profile Info</h4>
+                  </CardHeader>
+                  <CardBody>
+                    <GridContainer>
+                      <GridItem xs={12} sm={12} md={5}>
+                        <h2 className={classes.cardHeaderBlack}>
+                          Email: {this.state.user.email}
                         </h2>
-                      
-                      {this.state.user.slack ? "Linked" : <h2 className={classes.cardHeaderBlack}>
-                        Link Slack:
-                          <a href={url}>
-                            <img src="https://api.slack.com/img/sign_in_with_slack.png" />
-                          </a>
-                        }
-                      </h2>
-                      }
-                    </GridItem>
-                  </GridContainer>
+                        <h2 className={classes.cardHeaderBlack}>
+                          First Name: {this.state.user.first_name}
+                        </h2>
+                      </GridItem>
+                      <GridItem xs={12} sm={12} md={5}>
+                        <h2 className={classes.cardHeaderBlack}>
+                          Username: {this.state.user.username}
+                        </h2>
+                        <h2 className={classes.cardHeaderBlack}>
+                          Last Name: {this.state.user.last_name}
+                        </h2>
+
+                        {this.state.user.slack.length > 0 ? (
+                          "Linked"
+                        ) : (
+                          <h2 className={classes.cardHeaderBlack}>
+                            Link Slack:
+                            <a href={url}>
+                              <img src="https://api.slack.com/img/sign_in_with_slack.png" />
+                            </a>
+                          </h2>
+                        )}
+                      </GridItem>
+                    </GridContainer>
+                  </CardBody>
+                  <CardFooter />
+                </Card>
+              </form>
+            </GridItem>
+            <GridItem xs={12} sm={12} md={4}>
+              <Card profile>
+                <CardAvatar profile>
+                  <a href="#pablo" onClick={e => e.preventDefault()}>
+                    <img src={this.state.user.picture} alt="..." />
+                  </a>
+                </CardAvatar>
+                <CardBody profile>
+                  <h2 className={classes.cardHeaderBlack}>Google Calendar:</h2>
+                  <Button color="primary" round>
+                    Connect
+                  </Button>
                 </CardBody>
-                <CardFooter />
               </Card>
-            </form>
-          </GridItem>
-          <GridItem xs={12} sm={12} md={4}>
-            <Card profile>
-              <CardAvatar profile>
-                <a href="#pablo" onClick={e => e.preventDefault()}>
-                  <img src={this.state.user.picture} alt="..." />
-                </a>
-              </CardAvatar>
-              <CardBody profile>
-                <h6 className={classes.cardCategory}>CEO / CO-FOUNDER</h6>
-                <h4 className={classes.cardTitle}>Alec Thompson</h4>
-                <p className={classes.description}>
-                  Don't be scared of the truth because we need to restart the
-                  human foundation in truth And I love you like Kanye loves
-                  Kanye I love Rick Owens’ bed design but the back is...
-                </p>
-                <Button color="primary" round>
-                  Follow
-                </Button>
-              </CardBody>
-            </Card>
-          </GridItem>
-        </GridContainer>
-      </div>
-    );
+            </GridItem>
+          </GridContainer>
+        </div>
+      );
+    }
   }
 }
 

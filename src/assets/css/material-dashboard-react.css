@@ -1,4 +1,4 @@
-/*!
+/* !
 
  =========================================================
  * Material Dashboard React - v1.6.0 based on Material Dashboard - v1.2.0
@@ -191,9 +191,18 @@ label {
   font-weight: 400;
 }
 
-footer {
-  padding: 15px 0;
+/* Footer */
+
+/* footer {
+  padding: 15px;
+} */
+
+.footer-policy {
+  border: solid red 1px;
+  float: right; 
+  max-width: max-content;
 }
+
 
 footer ul {
   margin-bottom: 0;

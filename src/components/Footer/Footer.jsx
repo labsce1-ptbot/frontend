@@ -8,37 +8,14 @@ import List from "@material-ui/core/List";
 import footerStyle from "../../assets/jss/material-dashboard-react/components/footerStyle.jsx";
 import { Switch, Link, Redirect } from "react-router-dom";
 import PrivacyPolicy from "../PrivacyPolicy/privacyPolicy";
+import '../../assets/css/material-dashboard-react.css'
+
 
 function Footer({ ...props }) {
   const { classes, newRoute } = props;
   console.log("props=====", props);
   return (
-    <footer className={classes.footer}>
-      <div className={classes.container}>
-        {/* <div className={classes.left}>
-          <List className={classes.list}>
-            <ListItem className={classes.inlineBlock}>
-              <a href="#home" className={classes.block}>
-                Home
-              </a>
-            </ListItem>
-            <ListItem className={classes.inlineBlock}>
-              <a href="#company" className={classes.block}>
-                Company
-              </a>
-            </ListItem>
-            <ListItem className={classes.inlineBlock}>
-              <a href="#portfolio" className={classes.block}>
-                Portfolio
-              </a>
-            </ListItem>
-            <ListItem className={classes.inlineBlock}>
-              <a href="#blog" className={classes.block}>
-                Blog
-              </a>
-            </ListItem>
-          </List>
-        </div> */}
+    <footer className="footer">
         <Link
           to={
             newRoute[newRoute.length - 1].layout +
@@ -46,9 +23,10 @@ function Footer({ ...props }) {
           }
           activeClassName="active"
         >
-          <p className={classes.right}>Terms of Service and Privacy Policy</p>
+        <div className="footer-policy">
+          Terms of Service and Privacy Policy
+        </div>
         </Link>
-      </div>
     </footer>
   );
 }

@@ -18,3 +18,11 @@ span {
 /* .MuiPickersToolbar-toolbar {
   background-color: red;
 } */
+
+#deleteVacay {
+  color: #656279;
+}
+
+#deleteVacay:hover {
+  cursor: pointer;
+}
