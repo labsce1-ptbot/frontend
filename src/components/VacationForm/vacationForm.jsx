@@ -65,14 +65,13 @@ class VacationForm extends Component {
   submitHandler = event => {
     event.preventDefault();
     const { end_date, start_date, msg } = this.state;
-    const { id, slackRef, email } = this.props;
+    const { id, email } = this.props;
     // const userID = slackID;
     const vacay = {
       end_date,
       start_date,
       msg,
       id,
-      slackRef,
       email
     };
     // console.log("<----save--form->", vacay);
