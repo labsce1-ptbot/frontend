@@ -129,7 +129,7 @@ class UserProfile extends React.Component {
                         </h2>
 
                         {this.state.user.slack.length > 0 ? (
-                          "Linked"
+                          " Slack: Linked"
                         ) : (
                           <h2 className={classes.cardHeaderBlack}>
                             Link Slack:
