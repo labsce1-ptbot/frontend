@@ -5,6 +5,9 @@ import {
   MuiPickersUtilsProvider,
   KeyboardDatePicker
 } from "@material-ui/pickers";
+import { createMuiTheme } from "@material-ui/core";
+import { ThemeProvider } from "@material-ui/styles";
+import { whiteColor } from "../../assets/jss/material-dashboard-react";
 
 const styles = theme => ({
   cardCategoryWhite: {
@@ -33,8 +36,36 @@ const styles = theme => ({
     textDecoration: "none",
     fontSize: "12px",
     paddingBottom: "10px"
-  }
+  },
 });
+
+const materialTheme = createMuiTheme({
+  overrides: {
+    MuiPickersToolbar: {
+      toolbar: {
+        backgroundColor: "purple"
+      }
+    },
+    MuiPickersDay: {
+      dayDisabled: {
+        color: "gray !important"
+      },
+      daySelected: {
+        backgroundColor: "purple",
+        pointerEvents: "none",
+        color: "white !important"
+      },
+      day: {
+        color: "black !important"
+      }
+    },
+    MuiSvgIcon: {
+      root: {
+        color: "gray"
+      }
+    }
+  },
+})
 
 class DatePicker extends Component {
   state = {
@@ -65,8 +96,10 @@ class DatePicker extends Component {
     const { selectedDate, setSelectedDate } = this.state;
     const { dateLabel, classes } = this.props;
     return (
+      <ThemeProvider theme={materialTheme}>
       <MuiPickersUtilsProvider utils={MomentUtils}>
         <KeyboardDatePicker
+          disablePast="true"
           margin="normal"
           className={classes.input}
           id="date"
@@ -82,11 +115,12 @@ class DatePicker extends Component {
           KeyboardButtonProps={{
             "aria-label": "change date",
             classes: {
-              input: classes.input
+              input: classes.input,
             }
           }}
         />
       </MuiPickersUtilsProvider>
+      </ThemeProvider>
     );
   }
 }

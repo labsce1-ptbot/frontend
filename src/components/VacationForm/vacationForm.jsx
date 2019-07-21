@@ -35,7 +35,7 @@ const styles = {
   },
   vacForm: {
     textAlign: "center",
-    padding: ".9375rem 20px"
+    padding: ".9375rem 20px",
   },
 
   textField: {
