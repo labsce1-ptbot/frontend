@@ -5,6 +5,7 @@ import {
   MuiPickersUtilsProvider,
   KeyboardDatePicker
 } from "@material-ui/pickers";
+import { whiteColor } from "../../assets/jss/material-dashboard-react";
 
 const styles = theme => ({
   cardCategoryWhite: {
@@ -33,6 +34,10 @@ const styles = theme => ({
     textDecoration: "none",
     fontSize: "12px",
     paddingBottom: "10px"
+  },
+  dates: {
+    color: "white",
+    background: "purple"
   }
 });
 
@@ -67,6 +72,7 @@ class DatePicker extends Component {
     return (
       <MuiPickersUtilsProvider utils={MomentUtils}>
         <KeyboardDatePicker
+          disablePast="true"
           margin="normal"
           className={classes.input}
           id="date"
