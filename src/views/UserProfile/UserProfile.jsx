@@ -51,6 +51,9 @@ const styles = {
 
   loading: {
     textAlign: "center"
+  },
+  googleCalLink: {
+    color: "white"
   }
 };
 
@@ -74,15 +77,22 @@ class UserProfile extends React.Component {
       userRequest = response;
     }
 
-    console.log("User Request", userRequest.data.userInfo[0]);
-    await this.setState({
-      user: userRequest.data.userInfo[0]
-    });
+    console.log("User Request", userRequest.data);
+    if (!userRequest.data.userInfo[0] && userRequest.data.userInfo) {
+      await this.setState({
+        user: userRequest.data.userInfo
+      });
+    } else {
+      await this.setState({
+        user: userRequest.data.userInfo[0]
+      });
+    }
   }
+
   render() {
-    console.log("state", this.state.user.slack);
     const { classes, name, email } = this.props;
     const { errors, user } = this.state;
+    console.log("state", this.state);
 
     if (user.slack === undefined) {
       return (
@@ -119,7 +129,7 @@ class UserProfile extends React.Component {
                         </h2>
 
                         {this.state.user.slack.length > 0 ? (
-                          "Linked"
+                          " Slack: Linked"
                         ) : (
                           <h2 className={classes.cardHeaderBlack}>
                             Link Slack:
@@ -144,9 +154,18 @@ class UserProfile extends React.Component {
                 </CardAvatar>
                 <CardBody profile>
                   <h2 className={classes.cardHeaderBlack}>Google Calendar:</h2>
-                  <Button color="primary" round>
-                    Connect
-                  </Button>
+                  {user.google_access_token === null ? (
+                    <a
+                      href={`${REACT_APP_SERVER_URL}/googlecal/user`}
+                      className={classes.googleCalLink}
+                    >
+                      <Button color="primary" round>
+                        <p className={classes.googleCalLink}>Connect</p>
+                      </Button>
+                    </a>
+                  ) : (
+                    "Linked"
+                  )}
                 </CardBody>
               </Card>
             </GridItem>
