@@ -51,7 +51,7 @@ const materialTheme = createMuiTheme({
         color: "gray !important"
       },
       daySelected: {
-        backgroundColor: "purple !important",
+        backgroundColor: "purple !important ",
         pointerEvents: "none",
         color: "white !important"
       },
