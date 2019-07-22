@@ -4,7 +4,7 @@ import Button from "../CustomButtons/Button";
 import withStyles from "@material-ui/core/styles/withStyles";
 import TextField from "@material-ui/core/TextField";
 import { saveVacation } from "../../components/Api/api";
-import moment from "moment";
+
 const styles = {
   cardCategoryWhite: {
     "&,& a,& a:hover,& a:focus": {
@@ -35,7 +35,7 @@ const styles = {
   },
   vacForm: {
     textAlign: "center",
-    padding: ".9375rem 20px"
+    padding: ".9375rem 20px",
   },
 
   textField: {
@@ -121,7 +121,7 @@ class VacationForm extends Component {
           variant="outlined"
           name="msg"
           value={this.state.msg}
-          onChange={this.changeHandler}
+            onChange={this.changeHandler}
         />
         <Button type="submit" color="primary" round className={classes.saveBtn}>
           Save

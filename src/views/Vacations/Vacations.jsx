@@ -9,13 +9,11 @@ import Card from "../../components/Card/Card.jsx";
 import CardHeader from "../../components/Card/CardHeader.jsx";
 import CardBody from "../../components/Card/CardBody.jsx";
 import { getAllVacations, getProfile } from "../../components/Api/api";
-import DatePicker from "../../components/DatePicker/DatePicker.jsx";
-import TextField from "@material-ui/core/TextField";
-import Button from "../../components/CustomButtons/Button";
 import "../../assets/css/calendar.css";
 import VacationForm from "../../components/VacationForm/vacationForm.jsx";
-
 import Loader from "../../components/loader/loader.jsx";
+import VacationSwitch from "../../components/VacationSwitch/vacationSwitch.jsx"
+import { Switch }from "@material-ui/core"
 
 const styles = {
   cardCategoryWhite: {
@@ -52,6 +50,12 @@ const styles = {
 
   textField: {
     width: "100%"
+  },
+  loaderCenter: {
+    color: "purple",
+    position: "relative",
+    top: "20px",
+    left: "46%"
   }
 };
 
@@ -62,7 +66,8 @@ class Vacations extends Component {
     id: null,
     slackRef: null,
     email: null,
-    requestRec: false
+    requestRec: false,
+    alert: false,
   };
 
   componentDidMount() {
@@ -109,39 +114,38 @@ class Vacations extends Component {
           error: true
         });
       });
-  };
-
-  removeVacation = () => {};
-
-  render() {
-    console.log("vacations===> State", this.state);
-    // console.log("vacay props===", this.props[0]);
-    const { classes } = this.props;
+    };
+    
+    removeVacation = () => {};
+    
+    render() {
+      console.log("vacations===> State", this.state);
+      // console.log("vacay props===", this.props[0]);
+      const { classes } = this.props;
     const { vacations, id, slackRef, email, requestRec } = this.state;
     return (
       <GridContainer>
-        <GridItem xs={12} sm={12} md={8}>
-          <Card>
-            <CardHeader color="primary">
-              <h4 className={classes.cardTitleWhite}>Vacations Scheduled</h4>
-              <p className={classes.cardCategoryWhite}>
-                Here is a subtitle for this table
-              </p>
-            </CardHeader>
+      <GridItem xs={12} sm={12} md={8}>
+      <Card>
+      <CardHeader color="primary">
+      <h4 className={classes.cardTitleWhite}>Vacations Scheduled</h4>
+      <p className={classes.cardCategoryWhite}>
+      Here is a subtitle for this table
+      </p>
+      </CardHeader>
+    
+            <VacationSwitch  />
+            {!requestRec ? <CardBody><Loader classes={classes.loaderCenter}/></CardBody> :
             <CardBody>
-              {!requestRec ? (
-                <Loader />
-              ) : (
-                <Table
+            <Table
                   tableHeaderColor="primary"
                   tableHead={["Start Date", "End Date", "Message", "Actions"]}
                   tableData={vacations}
                   fetchVacations={this.fetchVacations}
                   userId={id}
                 />
-              )}
-              {vacations.length > 0 ? null : "No Vacations Scheduled"}
-            </CardBody>
+              </CardBody>
+            }
           </Card>
         </GridItem>
         <GridItem xs={12} sm={12} md={4}>

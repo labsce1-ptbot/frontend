@@ -27,11 +27,9 @@ class Loader extends Component {
   }
   render() {
     const { classes } = this.props;
-    console.log(this.state);
+
     return (
-      <div>
-        <CircularProgress variant="determinate" value={this.state.progress} />
-      </div>
+        <CircularProgress  className={classes} variant="determinate" value={this.state.progress} />
     );
   }
 }

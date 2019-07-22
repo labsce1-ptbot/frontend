@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import PropTypes from "prop-types";
 // @material-ui/core components
 import withStyles from "@material-ui/core/styles/withStyles";
 import Table from "@material-ui/core/Table";
@@ -12,8 +11,7 @@ import { deleteVacation } from "../Api/api.jsx";
 import tableStyle from "../../assets/jss/material-dashboard-react/components/tableStyle.jsx";
 import moment from "moment";
 import { Icon, TableFooter, TablePagination } from "@material-ui/core";
-import Vacations from "../../views/Vacations/Vacations.jsx";
-import TablePaginationActions from "@material-ui/core/TablePagination/TablePaginationActions";
+
 
 class CustomTable extends Component {
   state = {
@@ -80,6 +78,7 @@ class CustomTable extends Component {
               </TableRow>
             </TableHead>
           ) : null}
+          {this.props.tableData.length === 0 ? <h1 className={classes.loaderHeader}>No Vacations Scheduled</h1> : (
           <TableBody>
             {tableData
               .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
@@ -113,8 +112,9 @@ class CustomTable extends Component {
                   </TableRow>
                 );
               })}
-          </TableBody>
-          <TableFooter className={classes.tableFooter}>
+              </TableBody>
+          )}
+          {this.props.tableData.length > 0 ? <TableFooter className={classes.tableFooter}>
             <TableRow>
               <TablePagination
                 rowsPerPageOptions={[5, 10, 25]}
@@ -135,7 +135,7 @@ class CustomTable extends Component {
                 }}
               />
             </TableRow>
-          </TableFooter>
+          </TableFooter> : null}
         </Table>
       </div>
     );
