@@ -31,6 +31,11 @@ const styles = {
 
   homePageCard: {
     background: "rgba(255, 255, 255, 0.8)"
+  },
+
+  homePageHeader: {
+    display: "flex",
+    alignItem: "center"
   }
 };
 
@@ -66,8 +71,9 @@ class LandingPage extends React.Component {
           </GridItem>
           <GridItem xs={12} sm={12} md={4}>
             <Card className={classes.homePageCard}>
-              <CardHeader color="primary">
-                <h1>PTbOt: Slack Bot</h1>
+              <CardHeader color="primary" className={classes.homePageHeader}>
+                <img src={logo} alt="PTbOt logo" className={classes.logo} />
+                <h1>PTbOt</h1>
               </CardHeader>
               <CardBody className={classes.listItems}>
                 <ul className={classes.listItems}>
@@ -78,12 +84,12 @@ class LandingPage extends React.Component {
                     PTbOt responds to anyone that mentions you while you're away
                   </li>
                   <li className="listItems">
-                    Create custom away messages for all uses or target a
+                    Create custom away messages for all users or target a
                     specific group/user
                   </li>
                   <li className="listItems">
                     <b>
-                      PTbOt does not save, store or read any of your Slack
+                      PTbOt does not save, store and/or read any of your Slack
                       messages
                     </b>
                   </li>
@@ -94,6 +100,7 @@ class LandingPage extends React.Component {
                   <li className="listItems">
                     PTbOt is completely open source and free to use
                   </li>
+                  <li className="listItems">Google calendar integration</li>
                 </ul>
                 <div className={classes.btnDiv}>
                   <a
