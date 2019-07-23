@@ -12,7 +12,8 @@ import { getAllVacations, getProfile } from "../../components/Api/api";
 import "../../assets/css/calendar.css";
 import VacationForm from "../../components/VacationForm/vacationForm.jsx";
 import Loader from "../../components/loader/loader.jsx";
-import Switch from "@material-ui/core/Switch";
+import VacationSwitch from "../../components/VacationSwitch/vacationSwitch.jsx"
+import { Switch }from "@material-ui/core"
 
 const styles = {
   cardCategoryWhite: {
@@ -66,7 +67,7 @@ class Vacations extends Component {
     slackRef: null,
     email: null,
     requestRec: false,
-    alert: false
+    alert: false,
   };
 
   componentDidMount() {
@@ -113,25 +114,27 @@ class Vacations extends Component {
           error: true
         });
       });
-  };
-
-  removeVacation = () => {};
-
-  render() {
-    console.log("vacations===> State", this.state);
-    // console.log("vacay props===", this.props[0]);
-    const { classes } = this.props;
+    };
+    
+    removeVacation = () => {};
+    
+    render() {
+      console.log("vacations===> State", this.state);
+      // console.log("vacay props===", this.props[0]);
+      const { classes } = this.props;
     const { vacations, id, slackRef, email, requestRec } = this.state;
     return (
       <GridContainer>
-        <GridItem xs={12} sm={12} md={8}>
-          <Card>
-            <CardHeader color="primary">
-              <h4 className={classes.cardTitleWhite}>Vacations Scheduled</h4>
-              <p className={classes.cardCategoryWhite}>
-                Here is a subtitle for this table
-              </p>
-            </CardHeader>
+      <GridItem xs={12} sm={12} md={8}>
+      <Card>
+      <CardHeader color="primary">
+      <h4 className={classes.cardTitleWhite}>Vacations Scheduled</h4>
+      <p className={classes.cardCategoryWhite}>
+      Here is a subtitle for this table
+      </p>
+      </CardHeader>
+    
+            <VacationSwitch  />
             {!requestRec ? <CardBody><Loader classes={classes.loaderCenter}/></CardBody> :
             <CardBody>
             <Table
@@ -150,9 +153,6 @@ class Vacations extends Component {
             <CardHeader color="primary">
               <h4 className={classes.cardTitleWhite}>Schedule a Vacation</h4>
             </CardHeader>
-            <Switch checked={this.state.alert}
-            value="off"
-            />
             <VacationForm
               id={id}
               slackRef={slackRef}

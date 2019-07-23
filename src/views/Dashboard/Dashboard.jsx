@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import withStyles from "@material-ui/core/styles/withStyles";
 import dashboardStyle from "../../assets/jss/material-dashboard-react/views/dashboardStyle.jsx";
 import GridContainer from "../../components/Grid/GridContainer.jsx";
+import VacationSwitch from "../../components/VacationSwitch/vacationSwitch.jsx"
 
 class Dashboard extends React.Component {
   state = {
@@ -20,7 +21,8 @@ class Dashboard extends React.Component {
     return (
       <div>
         <h1>Hello Dashboard</h1>
-      </div>
+        <VacationSwitch/>
+        </div>
     );
   }
 }
