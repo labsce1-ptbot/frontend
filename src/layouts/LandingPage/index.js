@@ -42,6 +42,11 @@ const styles = {
   homePageHeader: {
     display: "flex",
     alignItem: "center"
+  },
+
+  footer: {
+    position: "fixed",
+    bottom: "30px"
   }
 };
 

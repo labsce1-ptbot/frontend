@@ -283,7 +283,7 @@ body > * {
   position: absolute;
   top: 0;
   visibility: hidden;
-  width: 150%;
+  width: 110%;
 }
 
 #bg div.visible {
