@@ -10,7 +10,6 @@ import Button from "../../components/CustomButtons/Button";
 import withStyles from "@material-ui/core/styles/withStyles";
 import CardHeader from "../../components/Card/CardHeader";
 import "../../assets/css/calendar.css";
-import background from "../LandingPage/images/bg07.svg";
 
 const styles = {
   joinBtn: {
