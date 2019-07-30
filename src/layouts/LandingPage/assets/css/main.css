@@ -1246,7 +1246,7 @@ button:disabled,
   -ms-transition: opacity 0.5s ease-in-out;
   transition: opacity 0.5s ease-in-out;
   margin-top: 20px;
-  color: rgba(255, 255, 255, 0.5);
+  color: black;
   position: fixed;
   bottom: 30px;
 }

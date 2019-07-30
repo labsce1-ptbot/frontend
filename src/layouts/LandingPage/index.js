@@ -5,7 +5,7 @@ import CardBody from "../../components/Card/CardBody";
 import Card from "../../components/Card/Card";
 import GridContainer from "../../components/Grid/GridContainer";
 import GridItem from "../../components/Grid/GridItem.jsx";
-import logo from "../../assets/img/vacalogo.png";
+import slack from "../../assets/img/slack.png";
 import Button from "../../components/CustomButtons/Button";
 import withStyles from "@material-ui/core/styles/withStyles";
 import CardHeader from "../../components/Card/CardHeader";
@@ -76,37 +76,33 @@ class LandingPage extends React.Component {
 
         <Card className={classes.homePageCard}>
           <CardBody className={classes.listItems}>
-            <ul className={classes.listItems}>
-              <li className="listItems">Schedule away messages for Slack</li>
-              <li className="listItems">
-                PTbOt responds to anyone that mentions you while you're away
-              </li>
-              <li className="listItems">
-                Create custom away messages for all users or target a specific
-                group/user
-              </li>
-              <li className="listItems">
-                <b>
-                  PTbOt does not save, store and/or read any of your Slack
-                  messages
-                </b>
-              </li>
-              <li className="listItems">
-                All of your stored vacations are removed from our database the
-                day after your vacation ends
-              </li>
-              <li className="listItems">
-                PTbOt is completely open source and free to use
-              </li>
-              <li className="listItems">Google calendar integration</li>
-            </ul>
+            <p className="listItems">Vacation mode made simple</p>
+            <p className="listItems">Your automated OOO</p>
+            <p className="listItems">
+              A free, open-source Slack plugin that automatically schedules away
+              messages when you add vacation time to your Google calendar.
+              Create custom messages for specific channels or users, or set an
+              automated message for anytime you’re mentioned while you’re OOO.
+              PTb0t: keeping you Away while you’re away.
+            </p>
+
             <div className={classes.btnDiv}>
               <a
                 href={`${process.env.REACT_APP_SERVER_URL}/auth/login`}
                 className={classes.signUpBTN}
               >
-                <Button color="primary" round>
-                  <p className={classes.joinBtn}>Signup/SignIn</p>
+                <Button color="primary" square>
+                  <p className={classes.joinBtn}>Sign Up</p>
+                </Button>
+              </a>
+            </div>
+            <div className={classes.btnDiv}>
+              <a
+                href={`${process.env.REACT_APP_SERVER_URL}/auth/login`}
+                className={classes.signUpBTN}
+              >
+                <Button color="primary" square>
+                  <p className={classes.joinBtn}>Log In</p>
                 </Button>
               </a>
             </div>
@@ -115,30 +111,8 @@ class LandingPage extends React.Component {
 
         {/* //<!-- Footer --> */}
         <div className="footer">
-          <ul class="icons">
-            {/* <React.Fragment className="icons"> */}
-            <li>
-              <a href="##" className="icon brands fa-twitter">
-                <span class="label">Twitter</span>
-              </a>
-            </li>
-            <li>
-              <a href="##" className="icon brands fa-instagram">
-                <span class="label">Instagram</span>
-              </a>
-            </li>
-            <li>
-              <a href="##" className="icon brands fa-github">
-                <span class="label">GitHub</span>
-              </a>
-            </li>
-            <li>
-              <a href="##" className="icon fa-envelope">
-                <span class="label">Email</span>
-              </a>
-            </li>
-            {/* </React.Fragment> */}
-          </ul>
+          <img src={slack} alt="slack logo" />
+          Powered by Slack
         </div>
       </div>
     );
