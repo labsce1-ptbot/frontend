@@ -265,11 +265,11 @@ body > * {
   height: 100%;
   left: 0;
   opacity: 1;
-  position: fixed;
+  position: absolute;
   top: 0;
-  width: 90%;
+  width: 100%;
   z-index: 1;
-  left: 400px;
+  /* left: 400px; */
 }
 
 #bg div {
@@ -284,7 +284,7 @@ body > * {
   position: absolute;
   top: 0;
   visibility: hidden;
-  width: 90%;
+  width: 100%;
 }
 
 #bg div.visible {
@@ -1249,6 +1249,9 @@ button:disabled,
   color: black;
   position: fixed;
   bottom: 30px;
+  display: flex;
+  align-items: center;
+  font-weight: bold;
 }
 
 .footer .icons {
@@ -1311,3 +1314,7 @@ button:disabled,
     position: relative;
   }
 } */
+
+.btnDiv {
+  background-color: red;
+}
