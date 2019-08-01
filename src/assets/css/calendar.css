@@ -26,3 +26,12 @@
 #deleteVacay:hover {
   cursor: pointer;
 }
+
+.listItems {
+  font-size: 18px;
+  margin-bottom: 13px;
+}
+
+.joinBtn {
+  color: white;
+}
