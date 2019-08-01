@@ -10,13 +10,22 @@ import Button from "../../components/CustomButtons/Button";
 import withStyles from "@material-ui/core/styles/withStyles";
 import CardHeader from "../../components/Card/CardHeader";
 import "../../assets/css/calendar.css";
+import { border } from "@material-ui/system";
+import { purple } from "@material-ui/core/colors";
 
 const styles = {
   joinBtn: {
     color: "white"
   },
+
+  btnLog: {
+    color: "#9C27B0",
+    margin: 0
+  },
+
   signUpBTN: {
-    textAlign: "center"
+    textAlign: "center",
+    width: "250px"
   },
 
   logo: {
@@ -29,9 +38,18 @@ const styles = {
     justifyContent: "center"
   },
 
+  landing_page_btn: {
+    width: "250px"
+  },
+
+  logIn: {
+    width: "250px",
+    border: "2px solid #9C27B0"
+  },
+
   homePageCard: {
     // background: "rgba(255, 255, 255, 0.8)"
-    width: "500px",
+    maxWidth: "500px",
     position: "fixed",
     top: 0,
     left: 0,
@@ -47,6 +65,12 @@ const styles = {
   footer: {
     position: "fixed",
     bottom: "30px"
+  },
+
+  listItems: {
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center"
   }
 };
 
@@ -76,8 +100,8 @@ class LandingPage extends React.Component {
 
         <Card className={classes.homePageCard}>
           <CardBody className={classes.listItems}>
-            <p className="listItems">Vacation mode made simple</p>
-            <p className="listItems">Your automated OOO</p>
+            <p className="header">Vacation mode made simple</p>
+            <p className="header">Your automated OOO</p>
             <p className="listItems">
               A free, open-source Slack plugin that automatically schedules away
               messages when you add vacation time to your Google calendar.
@@ -91,7 +115,11 @@ class LandingPage extends React.Component {
                 href={`${process.env.REACT_APP_SERVER_URL}/auth/login`}
                 className={classes.signUpBTN}
               >
-                <Button color="primary" square>
+                <Button
+                  color="primary"
+                  square
+                  className={classes.landing_page_btn}
+                >
                   <p className={classes.joinBtn}>Sign Up</p>
                 </Button>
               </a>
@@ -101,8 +129,8 @@ class LandingPage extends React.Component {
                 href={`${process.env.REACT_APP_SERVER_URL}/auth/login`}
                 className={classes.signUpBTN}
               >
-                <Button color="primary" square>
-                  <p className={classes.joinBtn}>Log In</p>
+                <Button color="white" square className={classes.logIn}>
+                  <p className={classes.btnLog}>Log In</p>
                 </Button>
               </a>
             </div>
