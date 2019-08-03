@@ -13,6 +13,8 @@ import "../../assets/css/calendar.css";
 import { border } from "@material-ui/system";
 import { purple } from "@material-ui/core/colors";
 
+const url = `${process.env.REACT_APP_SERVER_URL}/test/slack`;
+
 const styles = {
   joinBtn: {
     color: "white"
@@ -132,6 +134,11 @@ class LandingPage extends React.Component {
                 <Button color="white" square className={classes.logIn}>
                   <p className={classes.btnLog}>Log In</p>
                 </Button>
+              </a>
+            </div>
+            <div className={classes.btnDiv}>
+              <a href={url}>
+                <img src="https://api.slack.com/img/sign_in_with_slack.png" />
               </a>
             </div>
           </CardBody>
