@@ -114,7 +114,7 @@ class Dashboard extends React.Component {
     if (getSessionRequestData.success) {
       return (userInfo = getSessionRequestData.userInfo);
     }
-    return history.push("/home");
+    return history.push("/");
   }
   componentDidUpdate(e) {
     if (e.history.location.pathname !== e.location.pathname) {
