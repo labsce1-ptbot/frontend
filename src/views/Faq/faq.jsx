@@ -55,92 +55,102 @@ function FAQ(props) {
           <h3 className={classes.cardTitleWhite}>Getting Started and FAQ</h3>
         </CardHeader>
         <CardBody>
-          <div className={classes.typo}>
-            <p>
-              Please read these Terms and Conditions ("Terms", "Terms and
-              Conditions") carefully before using the https://ptbot.netlify.com
-              website and the PTbOt Slack application (together, or
-              individually, the "Service") created by PTbOt ("us", "we", or
-              "our").
-            </p>
-          </div>
-          <div className={classes.typo}>
-            <div className={classes.note}>
-              <a href="https://github.com/labsce1-ptbot">Open Source</a>
+          <div className={classes.faq}>
+            <div>
+              <b>How do I use PTbOt in Slack?</b>
             </div>
             <p>
-              PTbOt is completely open source with the source code located at
-              (https://github.com/labsce1-ptbot). If you decide to use PTbOt
-              please understand that personal data is stored as outlined in our
-              Privacy Policy above. On top of the data we collect for OAuth, we
-              also store users’ away messages (“Messages”). Information stored
-              in each Message is at the discretion of the user. PTbOt does not
-              use this information in any way, other than for the intended use
-              of the Service: as a Message in Slack. Messages are stored until
-              the users’ vacation is over (vacation end date). The day after a
-              user’s vacation end date, the entire vacation and associated
-              Messages are removed from PTbOT’s database.
+              <i>/vacation</i> is the command PTbOt is listening for in Slack.
+              It must be followed by schedule, all, or help.
             </p>
           </div>
-          <div className={classes.typo}>
-            <div className={classes.note}>Indemnification</div>
+          <div className={classes.faq}>
+            <div>
+              <b>
+                <i>/vacation schedule</i>
+              </b>
+            </div>
+            <p>Opens a prompt to schedule your vacation.</p>
+          </div>
+          <div className={classes.faq}>
+            <div>
+              <b>
+                <i>/vacation all</i>
+              </b>
+            </div>
             <p>
-              You agree to defend, indemnify and hold harmless PTbOt, and its
-              licensee and licensors, and the creators (engineers) from and
-              against any and all claims, damages, obligations, losses,
-              liabilities, costs or debt, and expenses (including but not
-              limited to attorney's fees), resulting from or arising out of a.
-              your use and access of the Service, by you or any person using
-              your account and password, or b. a breach of these Terms.
+              Lists all of your vacations you have scheduled through PTbOt. Once
+              the list is populated you are able to delete previously scheduled
+              vacations .
             </p>
           </div>
-          <div className={classes.typo}>
-            <div className={classes.note}>Limitation Of Liability</div>
+          <div className={classes.faq}>
+            <div>
+              <b>
+                <i>/vacation help</i>
+              </b>
+            </div>
             <p>
-              In no event shall PTbOT., nor its creators, be liable for any
-              indirect, incidental, special, consequential or punitive damages,
-              including without limitation, loss of profits, data, use,
-              goodwill, or other intangible losses, resulting from (i) your
-              access to or use of or inability to access or use the Service;
-              (ii) any conduct or content of any third party on the Service;
-              (iii) any content obtained from the Service; (iv) any conduct or
-              content you create during the use of the Service and (v)
-              unauthorized access, use or alteration of your transmissions or
-              content, whether based on warranty, contract, tort (including
-              negligence) or any other legal theory, whether or not we have been
-              informed of the possibility of such damage, and even if a remedy
-              set forth herein is found to have failed of its essential purpose.
+              Displays all commands and any relevant information to help a user
             </p>
           </div>
-          <div className={classes.typo}>
-            <div className={classes.note}>Disclaimer</div>
+          <div className={classes.faq}>
+            <div>
+              <b>How do I connect Google Calendar?</b>
+            </div>
             <p>
-              Your use of the Service is at your sole risk. The Service is
-              provided on an "AS IS" and "AS AVAILABLE" basis. The Service is
-              provided without warranties of any kind, whether express or
-              implied, including, but not limited to, implied warranties of
-              merchantability, fitness for a particular purpose,
-              non-infringement or course of performance. PTbOt its subsidiaries,
-              affiliates, and its licensors do not warrant that <br />
-              a. The Service will function uninterrupted, secure or available at
-              any particular time or location; <br />
-              b. Any errors or defects will be corrected;
-              <br /> c. The Service is free of viruses or other harmful
-              components; or <br />
-              d. The results of using the Service will meet your requirements.
+              Go to your user profile and click on the Google Calendar button.
+              This will prompt you for your permission giving PTbOT access to
+              your Google Calendar. We only add and delete events from your
+              calendar when events are created in Slack or through this
+              dashboard. We do not read, save, and/or access events created
+              outside of PTbOt
             </p>
           </div>
-          <div className={classes.typo}>
-            <div className={classes.note}>Changes</div>
+          <div className={classes.faq}>
+            <div>
+              <b>How do I connect to Slack?</b>
+            </div>
             <p>
-              We reserve the right, at our sole discretion, to modify or replace
-              these Terms at any time. If a revision is material we will provide
-              at least 30 days’ notice prior to any new terms taking effect.
-              What constitutes a material change will be determined at our sole
-              discretion. By continuing to access or use our Service after any
-              revisions become effective, you agree to be bound by the revised
-              terms. If you do not agree to the new terms, you are no longer
-              authorized to use the Service.
+              if you logged in with Slack, then you are all set to begin using
+              PTbOT. If you logged in with Google, all you have to do is go to
+              your User Profile and click the connect Slack button.{" "}
+            </p>
+          </div>
+          <div className={classes.faq}>
+            <div>
+              <b>What information does PTbOT save/store on me?</b>
+            </div>
+            <p>
+              PTb0T does not save, store, sell, or read any of your Slack
+              messages. Stored vacations are removed from our database the day
+              after your vacation ends.
+            </p>
+          </div>
+          <div className={classes.faq}>
+            <div>
+              <b>
+                How can I verify PTbOt does not read or store any information?
+              </b>
+            </div>
+          </div>
+          <div className={classes.faq}>
+            <p>
+              PTbOt is entirely open source. You can review all code
+              <a href="https://github.com/labsce1-ptbot"> here</a>.
+            </p>
+          </div>
+          <div className={classes.faq}>
+            <div>
+              <b>
+                Can I create a custom away message for certain groups or people?
+              </b>
+            </div>
+            <p>
+              Yes, if you schedule a vacation in Slack using the slash command{" "}
+              <i>/vacation schedule</i> you will be prompted to leave an away
+              message. At this point, you can choose an entire private channel
+              to receive your custom away message, an individual, or everyone.
             </p>
           </div>
         </CardBody>
