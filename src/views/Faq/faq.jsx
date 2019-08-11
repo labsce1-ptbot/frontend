@@ -100,11 +100,9 @@ function FAQ(props) {
             </div>
             <p>
               Go to your user profile and click on the Google Calendar button.
-              This will prompt you for your permission giving PTbOT access to
-              your Google Calendar. We only add and delete events from your
-              calendar when events are created in Slack or through this
-              dashboard. We do not read, save, and/or access events created
-              outside of PTbOt
+              This will prompt Google requesting your permission. Click allow.
+              We only add and delete events from your calendar. We do not read,
+              save, and/or access events created outside of PTbOt
             </p>
           </div>
           <div className={classes.faq}>
