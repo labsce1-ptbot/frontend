@@ -122,6 +122,7 @@ class LandingPage extends React.Component {
                   color="primary"
                   square
                   className={classes.landing_page_btn}
+                  id="sign_up"
                 >
                   <p className={classes.joinBtn}>Sign Up</p>
                 </Button>
