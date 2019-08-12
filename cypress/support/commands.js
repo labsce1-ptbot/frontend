@@ -33,13 +33,14 @@ Cypress.Commands.add('login', (overrides = {}) => {
     method: 'POST',
     url: Cypress.env('auth_url'),
     body: {
-      grant_type: 'password',
+      grant_type: 'http://auth0.com/oauth/grant-type/password-realm',
       username: Cypress.env('auth_username'),
       password: Cypress.env('auth_password'),
       audience: Cypress.env('auth_audience'),
       scope: 'openid profile email',
       client_id: Cypress.env('auth_client_id'),
       client_secret: Cypress.env('auth_client_secret'),
+      realm: "Username-Password-Authentication"
     },
   };
   cy.request(options);
