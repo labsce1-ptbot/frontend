@@ -5,7 +5,7 @@ import withStyles from "@material-ui/core/styles/withStyles";
 import TextField from "@material-ui/core/TextField";
 import { saveVacation } from "../../components/Api/api";
 
-const styles = {
+const styles = theme => ({
   cardCategoryWhite: {
     "&,& a,& a:hover,& a:focus": {
       color: "rgba(255,255,255,.62)",
@@ -35,13 +35,29 @@ const styles = {
   },
   vacForm: {
     textAlign: "center",
-    padding: ".9375rem 20px",
+    padding: ".9375rem 20px"
   },
 
   textField: {
-    width: "100%"
+    width: "276px",
+    [theme.breakpoints.down("sm")]: {
+      width: "276px"
+    }
+  },
+
+  textSaveBtn: {
+    [theme.breakpoints.down("sm")]: {
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center"
+    }
+  },
+
+  saveBtn: {
+    width: "276px",
+    padding: 23
   }
-};
+});
 
 class VacationForm extends Component {
   state = {
@@ -110,22 +126,29 @@ class VacationForm extends Component {
           updateDate={this.updateDate}
           saved={saved}
         />
-        <TextField
-          id="outlined-multiline-static"
-          label="Away Message"
-          multiline
-          rows="4"
-          placeholder="Optional"
-          className={classes.textField}
-          margin="normal"
-          variant="outlined"
-          name="msg"
-          value={this.state.msg}
+        <div className={classes.textSaveBtn}>
+          <TextField
+            id="outlined-multiline-static"
+            label="Away Message"
+            multiline
+            rows="4"
+            placeholder="Optional"
+            className={classes.textField}
+            margin="normal"
+            variant="outlined"
+            name="msg"
+            value={this.state.msg}
             onChange={this.changeHandler}
-        />
-        <Button type="submit" color="primary" round className={classes.saveBtn}>
-          Save
-        </Button>
+          />
+          <Button
+            type="submit"
+            color="primary"
+            square
+            className={classes.saveBtn}
+          >
+            Save
+          </Button>
+        </div>
       </form>
     );
   }
