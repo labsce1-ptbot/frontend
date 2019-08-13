@@ -5,7 +5,7 @@ import withStyles from "@material-ui/core/styles/withStyles";
 import TextField from "@material-ui/core/TextField";
 import { saveVacation } from "../../components/Api/api";
 
-const styles = {
+const styles = theme => ({
   cardCategoryWhite: {
     "&,& a,& a:hover,& a:focus": {
       color: "rgba(255,255,255,.62)",
@@ -39,9 +39,20 @@ const styles = {
   },
 
   textField: {
-    width: "93%"
+    width: "276px",
+    [theme.breakpoints.down("sm")]: {
+      width: "276px"
+    }
+  },
+
+  textSaveBtn: {
+    [theme.breakpoints.down("sm")]: {
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center"
+    }
   }
-};
+});
 
 class VacationForm extends Component {
   state = {
@@ -110,22 +121,29 @@ class VacationForm extends Component {
           updateDate={this.updateDate}
           saved={saved}
         />
-        <TextField
-          id="outlined-multiline-static"
-          label="Away Message"
-          multiline
-          rows="4"
-          placeholder="Optional"
-          className={classes.textField}
-          margin="normal"
-          variant="outlined"
-          name="msg"
-          value={this.state.msg}
-          onChange={this.changeHandler}
-        />
-        <Button type="submit" color="primary" round className={classes.saveBtn}>
-          Save
-        </Button>
+        <div className={classes.textSaveBtn}>
+          <TextField
+            id="outlined-multiline-static"
+            label="Away Message"
+            multiline
+            rows="4"
+            placeholder="Optional"
+            className={classes.textField}
+            margin="normal"
+            variant="outlined"
+            name="msg"
+            value={this.state.msg}
+            onChange={this.changeHandler}
+          />
+          <Button
+            type="submit"
+            color="primary"
+            round
+            className={classes.saveBtn}
+          >
+            Save
+          </Button>
+        </div>
       </form>
     );
   }
