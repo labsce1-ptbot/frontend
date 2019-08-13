@@ -51,6 +51,11 @@ const styles = theme => ({
       flexDirection: "column",
       alignItems: "center"
     }
+  },
+
+  saveBtn: {
+    width: "276px",
+    padding: 23
   }
 });
 
@@ -138,7 +143,7 @@ class VacationForm extends Component {
           <Button
             type="submit"
             color="primary"
-            round
+            square
             className={classes.saveBtn}
           >
             Save
