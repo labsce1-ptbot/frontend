@@ -12,6 +12,7 @@ import CardHeader from "../../components/Card/CardHeader";
 import "../../assets/css/calendar.css";
 import { border } from "@material-ui/system";
 import { purple } from "@material-ui/core/colors";
+import PrivacyModal from "../../components/modal/modal";
 
 const url = `${process.env.REACT_APP_SERVER_URL}/test/slack`;
 
@@ -77,10 +78,21 @@ const styles = {
 };
 
 class LandingPage extends React.Component {
-  state = {};
+  state = {
+    open: false
+  };
+
+  openHandler = key => {
+    this.setState({ open: !this.state.open, movieIndex: key });
+  };
+
+  closeHandler = () => {
+    this.setState({ open: !this.state.open });
+  };
 
   render() {
     const { classes } = this.props;
+    const { open } = this.state;
     return (
       <div className="landingpage">
         {/* //<!-- Header --> */}
@@ -106,10 +118,12 @@ class LandingPage extends React.Component {
             <p className="header">Your automated OOO</p>
             <p className="listItems">
               A free, open-source Slack plugin that automatically schedules away
-              messages when you add vacation time to your Google calendar.
-              Create custom messages for specific channels or users, or set an
-              automated message for anytime you’re mentioned while you’re OOO.
-              PTb0t: keeping you Away while you’re away.
+              messages when you add vacation time. Whether your vacation is
+              scheduled in Slack or through our dashboard, all vacations are
+              fully integrated with your Google calendar. Create custom messages
+              for specific channels or users, or set an automated message for
+              anytime you’re mentioned while you’re OOO. PTb0t: keeping you Away
+              while you’re away.
             </p>
 
             <div className={classes.btnDiv}>
@@ -146,8 +160,8 @@ class LandingPage extends React.Component {
 
         {/* //<!-- Footer --> */}
         <div className="footer">
-          <img src={slack} alt="slack logo" />
-          Powered by Slack
+          <PrivacyModal closeHandler={this.closeHandler} open={open} />
+          <p onClick={this.openHandler}>Privacy</p>
         </div>
       </div>
     );

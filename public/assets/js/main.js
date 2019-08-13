@@ -108,7 +108,8 @@
         // "images/bg04.jpg": "center",
         // "images/bg05.jpg": "center",
         // "images/bg06.jpg": "center",
-        "images/bg07.svg": "top"
+        "https://res.cloudinary.com/dg9vhfqmb/image/upload/v1565653466/Tropea.jpg":
+          "top"
       }
 
       // Delay.
