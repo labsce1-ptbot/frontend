@@ -21,6 +21,12 @@ const styles = {
     color: "white"
   },
 
+  header: {
+    color: "black",
+    fontWeight: "bold",
+    margin: 10
+  },
+
   btnLog: {
     color: "#9C27B0",
     margin: 0
@@ -65,15 +71,28 @@ const styles = {
     alignItem: "center"
   },
 
-  footer: {
-    position: "fixed",
-    bottom: "30px"
+  yes: {
+    marginLeft: "20px"
   },
 
   listItems: {
     display: "flex",
     flexDirection: "column",
     justifyContent: "center"
+  },
+
+  privacyLink: {
+    textDecoration: "underline",
+    color: "#9C27B0",
+    cursor: "pointer",
+    fontSize: "13px"
+  },
+
+  list: {
+    fontSize: "20px",
+    marginTop: "20px",
+    marginLeft: "10px",
+    marginRight: "10px"
   }
 };
 
@@ -114,16 +133,16 @@ class LandingPage extends React.Component {
 
         <Card className={classes.homePageCard}>
           <CardBody className={classes.listItems}>
-            <p className="header">Vacation mode made simple</p>
-            <p className="header">Your automated OOO</p>
-            <p className="listItems">
-              A free, open-source Slack plugin that automatically schedules away
-              messages when you add vacation time. Whether your vacation is
-              scheduled in Slack or through our dashboard, all vacations are
-              fully integrated with your Google calendar. Create custom messages
-              for specific channels or users, or set an automated message for
-              anytime you’re mentioned while you’re OOO. PTb0t: keeping you Away
-              while you’re away.
+            <h2 className={classes.header}>
+              PTb0t: keeping you Away while you’re away
+            </h2>
+            {/* <h3 className={classes.header}>Vacation mode made simple</h3> */}
+            <p className={classes.list}>
+              A free, open-source Slack plugin that automatically sends away
+              messages when you're away. Schedule vacation time in Slack or on
+              our dashboard and your vacation is added to your Google calendar.
+              Create custom messages for specific channels or users, or set an
+              automated message for any time you’re mentioned while you’re OOO.
             </p>
 
             <div className={classes.btnDiv}>
@@ -156,13 +175,21 @@ class LandingPage extends React.Component {
               </a>
             </div>
           </CardBody>
+          <div className={classes.yes}>
+            <PrivacyModal closeHandler={this.closeHandler} open={open} />
+            <p onClick={this.openHandler} className={classes.privacyLink}>
+              Terms of Service and Privacy Policy
+            </p>
+          </div>
         </Card>
 
         {/* //<!-- Footer --> */}
-        <div className="footer">
+        {/* <div className={classes.footer}>
           <PrivacyModal closeHandler={this.closeHandler} open={open} />
-          <p onClick={this.openHandler}>Privacy</p>
-        </div>
+          <p onClick={this.openHandler} className={classes.privacyLink}>
+            Terms of Service and Privacy Policy
+          </p>
+        </div> */}
       </div>
     );
   }

@@ -197,7 +197,7 @@ body {
 @media screen and (max-height: 640px) {
   html,
   body {
-    height: auto;
+    /* height: auto; */
     min-height: 100%;
   }
 }

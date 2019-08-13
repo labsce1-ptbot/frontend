@@ -68,10 +68,10 @@ function PrivacyPolicy(props) {
           </div>
           <div className={classes.typo}>
             <div className={classes.note}>
-              <a href="https://github.com/labsce1-ptbot">Open Source</a>
+              <a href="https://github.com/labsce1-ptbot">Open-Source</a>
             </div>
             <p>
-              PTbOt is completely open source with the source code located at
+              PTbOt is completely open-source with the source code located at
               (https://github.com/labsce1-ptbot). If you decide to use PTbOt
               please understand that personal data is stored as outlined in our
               Privacy Policy above. On top of the data we collect for OAuth, we
@@ -85,7 +85,22 @@ function PrivacyPolicy(props) {
             </p>
           </div>
           <div className={classes.typo}>
-            <div className={classes.note}>Indemnification</div>
+            <div className={classes.note}>
+              <b>Google Calendar</b>
+            </div>
+            <p>
+              For vacations (events) scheduled through PTbOT: PTbOt will only
+              add/delete those events on a user's Google Calendar. PtbOt
+              <b> does not and will not </b> save, store, edit, delete, read,
+              and/or access any events or any other information created outside
+              of PTbOT. PTbOt are open-source and a user is free to exam all
+              source code to verify this.
+            </p>
+          </div>
+          <div className={classes.typo}>
+            <div className={classes.note}>
+              <b>Indemnification</b>
+            </div>
             <p>
               You agree to defend, indemnify and hold harmless PTbOt, and its
               licensee and licensors, and the creators (engineers) from and
@@ -97,7 +112,12 @@ function PrivacyPolicy(props) {
             </p>
           </div>
           <div className={classes.typo}>
-            <div className={classes.note}>Limitation Of Liability</div>
+            <div className={classes.note}>
+              <b>
+                Limitation Of <br />
+                Liability
+              </b>
+            </div>
             <p>
               In no event shall PTbOT., nor its creators, be liable for any
               indirect, incidental, special, consequential or punitive damages,
@@ -115,7 +135,9 @@ function PrivacyPolicy(props) {
             </p>
           </div>
           <div className={classes.typo}>
-            <div className={classes.note}>Disclaimer</div>
+            <div className={classes.note}>
+              <b>Disclaimer </b>
+            </div>
             <p>
               Your use of the Service is at your sole risk. The Service is
               provided on an "AS IS" and "AS AVAILABLE" basis. The Service is
@@ -133,7 +155,9 @@ function PrivacyPolicy(props) {
             </p>
           </div>
           <div className={classes.typo}>
-            <div className={classes.note}>Changes</div>
+            <div className={classes.note}>
+              <b>Changes</b>
+            </div>
             <p>
               We reserve the right, at our sole discretion, to modify or replace
               these Terms at any time. If a revision is material we will provide
