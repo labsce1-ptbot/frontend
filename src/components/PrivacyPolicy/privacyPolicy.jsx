@@ -93,7 +93,7 @@ function PrivacyPolicy(props) {
               add/delete those events on a user's Google Calendar. PtbOt
               <b> does not and will not </b> save, store, edit, delete, read,
               and/or access any events or any other information created outside
-              of PTbOT. PTbOt are open-source and a user is free to exam all
+              of PTbOT. PTbOt is open-source and a user is free to exam all
               source code to verify this.
             </p>
           </div>

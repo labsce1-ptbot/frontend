@@ -149,11 +149,13 @@ class LandingPage extends React.Component {
               <a
                 href={`${process.env.REACT_APP_SERVER_URL}/auth/login`}
                 className={classes.signUpBTN}
+                id="sign_up"
               >
                 <Button
                   color="primary"
                   square
                   className={classes.landing_page_btn}
+                  id="sign_up"
                 >
                   <p className={classes.joinBtn}>Sign Up</p>
                 </Button>
