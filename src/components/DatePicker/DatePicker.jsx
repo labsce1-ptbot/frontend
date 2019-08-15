@@ -8,6 +8,7 @@ import {
 import { createMuiTheme } from "@material-ui/core";
 import { ThemeProvider } from "@material-ui/styles";
 import { whiteColor } from "../../assets/jss/material-dashboard-react";
+import "../../assets/css/calendar.css";
 
 const styles = theme => ({
   cardCategoryWhite: {
@@ -36,7 +37,7 @@ const styles = theme => ({
     textDecoration: "none",
     fontSize: "12px",
     paddingBottom: "10px"
-  },
+  }
 });
 
 const materialTheme = createMuiTheme({
@@ -64,8 +65,8 @@ const materialTheme = createMuiTheme({
         color: "gray"
       }
     }
-  },
-})
+  }
+});
 
 class DatePicker extends Component {
   state = {
@@ -97,29 +98,29 @@ class DatePicker extends Component {
     const { dateLabel, classes } = this.props;
     return (
       <ThemeProvider theme={materialTheme}>
-      <MuiPickersUtilsProvider utils={MomentUtils}>
-        <KeyboardDatePicker
-          disablePast="true"
-          margin="normal"
-          className={classes.input}
-          id="date"
-          label={dateLabel}
-          value={setSelectedDate ? setSelectedDate : selectedDate}
-          variant="underline"
-          onChange={this.changeHandler}
-          InputProps={{
-            classes: {
-              input: classes.input
-            }
-          }}
-          KeyboardButtonProps={{
-            "aria-label": "change date",
-            classes: {
-              input: classes.input,
-            }
-          }}
-        />
-      </MuiPickersUtilsProvider>
+        <MuiPickersUtilsProvider utils={MomentUtils}>
+          <KeyboardDatePicker
+            disablePast="true"
+            margin="normal"
+            className={classes.input}
+            id="date"
+            label={dateLabel}
+            value={setSelectedDate ? setSelectedDate : selectedDate}
+            variant="underline"
+            onChange={this.changeHandler}
+            InputProps={{
+              classes: {
+                input: classes.input
+              }
+            }}
+            KeyboardButtonProps={{
+              "aria-label": "change date",
+              classes: {
+                input: classes.input
+              }
+            }}
+          />
+        </MuiPickersUtilsProvider>
       </ThemeProvider>
     );
   }
