@@ -65,12 +65,15 @@ class Dashboard extends React.Component {
       mobileOpen: false
     };
   }
+
   handleImageClick = image => {
     this.setState({ image: image });
   };
+
   handleColorClick = color => {
     this.setState({ color: color });
   };
+
   handleFixedClick = () => {
     if (this.state.fixedClasses === "dropdown") {
       this.setState({ fixedClasses: "dropdown show" });
@@ -78,17 +81,21 @@ class Dashboard extends React.Component {
       this.setState({ fixedClasses: "dropdown" });
     }
   };
+
   handleDrawerToggle = () => {
     this.setState({ mobileOpen: !this.state.mobileOpen });
   };
+
   getRoute() {
-      return this.props.location.pathname !== "/admin/maps";
+    return this.props.location.pathname !== "/admin/maps";
   }
+
   resizeFunction = () => {
     if (window.innerWidth >= 960) {
       this.setState({ mobileOpen: false });
     }
   };
+
   async componentDidMount() {
     const { history } = this.props;
     if (navigator.platform.indexOf("Win") > -1) {
@@ -114,8 +121,9 @@ class Dashboard extends React.Component {
     if (getSessionRequestData.success) {
       return (userInfo = getSessionRequestData.userInfo);
     }
-    return history.push("/home");
+    return history.push("/");
   }
+
   componentDidUpdate(e) {
     if (e.history.location.pathname !== e.location.pathname) {
       this.refs.mainPanel.scrollTop = 0;
@@ -124,9 +132,11 @@ class Dashboard extends React.Component {
       }
     }
   }
+
   componentWillUnmount() {
     window.removeEventListener("resize", this.resizeFunction);
   }
+
   render() {
     const { classes, ...rest } = this.props;
 
@@ -150,12 +160,12 @@ class Dashboard extends React.Component {
           />
           {/* On the /maps route we want the map to be on full screen - this is not possible if the content and conatiner classes are present because they have some paddings which would make the map smaller */}
           {this.getRoute() ? (
-              <div className={classes.content}>
-                  <div className={classes.container}>{switchRoutes}</div>
-              </div>
+            <div className={classes.content}>
+              <div className={classes.container}>{switchRoutes}</div>
+            </div>
           ) : (
-                  <div className={classes.map}>{switchRoutes}</div>
-              )}
+            <div className={classes.map}>{switchRoutes}</div>
+          )}
           {this.getRoute() ? <Footer newRoute={newRoute} /> : null}
         </div>
       </div>

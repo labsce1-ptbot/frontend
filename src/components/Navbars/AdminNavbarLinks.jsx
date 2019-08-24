@@ -66,7 +66,7 @@ class HeaderLinks extends React.Component {
       logoutRequest = request;
     }
     if (logoutRequest.status === 301) {
-      history.push("/home");
+      history.push("/");
     }
   };
 
@@ -76,7 +76,7 @@ class HeaderLinks extends React.Component {
     return (
       <div>
         <div className={classes.searchWrapper}>
-          <CustomInput
+          {/* <CustomInput
             formControlProps={{
               className: classes.margin + " " + classes.search
             }}
@@ -86,12 +86,12 @@ class HeaderLinks extends React.Component {
                 "aria-label": "Search"
               }
             }}
-          />
-          <Button color="white" aria-label="edit" justIcon round>
+          /> */}
+          {/* <Button color="white" aria-label="edit" justIcon round>
             <Search />
-          </Button>
+          </Button> */}
         </div>
-        <Button
+        {/* <Button
           color={window.innerWidth > 959 ? "transparent" : "white"}
           justIcon={window.innerWidth > 959}
           simple={!(window.innerWidth > 959)}
@@ -102,7 +102,7 @@ class HeaderLinks extends React.Component {
           <Hidden mdUp implementation="css">
             <p className={classes.linkText}>Dashboard</p>
           </Hidden>
-        </Button>
+        </Button> */}
         <div className={classes.manager}>
           <Button
             buttonRef={node => {
@@ -116,15 +116,15 @@ class HeaderLinks extends React.Component {
             onClick={this.handleToggle}
             className={classes.buttonLink}
           >
-            <Notifications className={classes.icons} />
+            {/* <Notifications className={classes.icons} />
             <span className={classes.notifications}>5</span>
             <Hidden mdUp implementation="css">
               <p onClick={this.handleClick} className={classes.linkText}>
                 Notification
               </p>
-            </Hidden>
+            </Hidden> */}
           </Button>
-          <Poppers
+          {/* <Poppers
             open={open}
             anchorEl={this.anchorEl}
             transition
@@ -182,7 +182,7 @@ class HeaderLinks extends React.Component {
                 </Paper>
               </Grow>
             )}
-          </Poppers>
+          </Poppers> */}
         </div>
         <div className={classes.manager}>
           <Button
@@ -235,20 +235,22 @@ class HeaderLinks extends React.Component {
                         onClick={this.handleClose}
                         className={classes.dropdownItem}
                       >
-                        Settings
+                        Support
                       </MenuItem>
-                      <MenuItem
+                      {/* <MenuItem
                         onClick={this.handleClose}
                         className={classes.dropdownItem}
                       >
                         Activity
-                      </MenuItem>
-                      <MenuItem
-                        onClick={this.handleClose}
-                        className={classes.dropdownItem}
-                      >
-                        Support
-                      </MenuItem>
+                      </MenuItem> */}
+                      <NavLink to="/admin/vacations">
+                        <MenuItem
+                          onClick={this.handleClose}
+                          className={classes.dropdownItem}
+                        >
+                          Vacations
+                        </MenuItem>
+                      </NavLink>
                       <MenuItem
                         onClick={this.logout}
                         className={classes.dropdownItem}

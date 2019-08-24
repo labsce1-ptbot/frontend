@@ -197,7 +197,7 @@ body {
 @media screen and (max-height: 640px) {
   html,
   body {
-    height: auto;
+    /* height: auto; */
     min-height: 100%;
   }
 }
@@ -1247,7 +1247,7 @@ button:disabled,
   transition: opacity 0.5s ease-in-out;
   margin-top: 20px;
   color: black;
-  position: fixed;
+  /* position: fixed; */
   bottom: 30px;
   display: flex;
   align-items: center;
