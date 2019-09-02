@@ -43,7 +43,7 @@ function Header({ ...props }) {
           {props.rtlActive ? (
             <RTLNavbarLinks />
           ) : (
-            <AdminNavbarLinks {...props} />
+            <AdminNavbarLinks props={props} />
           )}
         </Hidden>
         <Hidden mdUp implementation="css">
