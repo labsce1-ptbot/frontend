@@ -140,6 +140,17 @@ class UserProfile extends React.Component {
                   </a>
                 </CardAvatar>
                 <CardBody profile>
+                  {this.state.user.slack.length > 0 ? (
+                    " Slack: Linked"
+                  ) : (
+                    <h2 className={classes.cardHeaderBlack}>
+                      Link Slack:
+                      <a href={url}>
+                        <img src="https://api.slack.com/img/sign_in_with_slack.png" />
+                      </a>
+                    </h2>
+                  )}
+                  <br />
                   {user.google_access_token === null ? (
                     <a
                       href={`${REACT_APP_SERVER_URL}/googlecal/user`}
@@ -151,17 +162,6 @@ class UserProfile extends React.Component {
                     </a>
                   ) : (
                     "Google Calendar: Linked"
-                  )}
-                  <br />
-                  {this.state.user.slack.length > 0 ? (
-                    " Slack: Linked"
-                  ) : (
-                    <h2 className={classes.cardHeaderBlack}>
-                      Link Slack:
-                      <a href={url}>
-                        <img src="https://api.slack.com/img/sign_in_with_slack.png" />
-                      </a>
-                    </h2>
                   )}
                 </CardBody>
               </Card>
