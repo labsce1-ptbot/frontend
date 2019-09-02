@@ -146,18 +146,20 @@ class LandingPage extends React.Component {
             </p>
 
             <div className={classes.btnDiv}>
-              {/* <a
+              <a
                 href={`${process.env.REACT_APP_SERVER_URL}/auth/login`}
                 className={classes.signUpBTN}
-              > */}
-              <Button
-                color="primary"
-                square
-                className={classes.landing_page_btn}
               >
-                <p className={classes.joinBtn}>Sign Up</p>
-              </Button>
-              {/* </a> */}
+                id="sign_up" >
+                <Button
+                  color="primary"
+                  square
+                  className={classes.landing_page_btn}
+                  id="sign_up"
+                >
+                  <p className={classes.joinBtn}>Sign Up</p>
+                </Button>
+              </a>
             </div>
             <div className={classes.btnDiv}>
               <a

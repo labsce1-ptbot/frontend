@@ -31,7 +31,7 @@ class App extends Component {
       <Switch>
         {/* <Route path="/auth" component={Auth} /> */}
         <Route path="/admin" component={Admin} />
-        <Route path="/home" component={LandingPage} />
+        <Route path="/" component={LandingPage} />
         <Redirect from="/" to="/admin/dashboard" />
         {/* <PrivateRoute path="/" component={Admin} /> */}
       </Switch>
