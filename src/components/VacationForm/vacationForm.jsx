@@ -63,7 +63,7 @@ class VacationForm extends Component {
   state = {
     start_date: null,
     end_date: null,
-    msg: null,
+    msg: "",
     saved: false
   };
 
@@ -143,8 +143,8 @@ class VacationForm extends Component {
           <Button
             type="submit"
             color="primary"
-            square
             className={classes.saveBtn}
+            block
           >
             Save
           </Button>

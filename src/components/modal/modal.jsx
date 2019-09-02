@@ -1,7 +1,6 @@
-import React, { Component } from "react";
+import React from "react";
 import Dialog from "@material-ui/core/Dialog";
 import withStyles from "@material-ui/core/styles/withStyles";
-import { Icon, TextField } from "@material-ui/core";
 import PrivacyPolicy from "../PrivacyPolicy/privacyPolicy";
 
 const styles = {
