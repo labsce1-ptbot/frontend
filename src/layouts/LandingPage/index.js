@@ -3,18 +3,10 @@ import "./assets/css/main.css";
 import "./assets/css/fontawesome-all.min.css";
 import CardBody from "../../components/Card/CardBody";
 import Card from "../../components/Card/Card";
-import GridContainer from "../../components/Grid/GridContainer";
-import GridItem from "../../components/Grid/GridItem.jsx";
-import slack from "../../assets/img/slack.png";
 import Button from "../../components/CustomButtons/Button";
 import withStyles from "@material-ui/core/styles/withStyles";
-import CardHeader from "../../components/Card/CardHeader";
 import "../../assets/css/calendar.css";
-import { border } from "@material-ui/system";
-import { purple } from "@material-ui/core/colors";
 import PrivacyModal from "../../components/modal/modal";
-
-const url = `${process.env.REACT_APP_SERVER_URL}/test/slack`;
 
 const styles = {
   joinBtn: {
@@ -152,7 +144,7 @@ class LandingPage extends React.Component {
               >
                 <Button
                   color="primary"
-                  square
+                  block
                   className={classes.landing_page_btn}
                   id="sign_up"
                 >
@@ -165,7 +157,7 @@ class LandingPage extends React.Component {
                 href={`${process.env.REACT_APP_SERVER_URL}/auth/login`}
                 className={classes.signUpBTN}
               >
-                <Button color="white" square className={classes.logIn}>
+                <Button color="white" block className={classes.logIn}>
                   <p className={classes.btnLog}>Log In</p>
                 </Button>
               </a>
