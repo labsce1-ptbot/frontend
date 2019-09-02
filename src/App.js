@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 // import { createBrowserHistory } from "history";
-import { Router, Route, Switch, Redirect } from "react-router-dom";
+import { Route, Switch, Redirect } from "react-router-dom";
 // import axios from "axios";
 
 // core components
@@ -23,8 +23,6 @@ class App extends Component {
   // const PrivateRoute = () => {
 
   // }
-
-
 
   render() {
     return (
