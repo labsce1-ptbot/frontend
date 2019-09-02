@@ -17,7 +17,7 @@ function Footer({ ...props }) {
             newRoute[newRoute.length - 1].layout +
             newRoute[newRoute.length - 1].path
           }
-          activeClassName="active"
+          activeclassname="active"
         >
           <p className={classes.right}>Terms of Service and Privacy Policy</p>
         </Link>
