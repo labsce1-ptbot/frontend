@@ -100,7 +100,7 @@
   });
 
   // Slideshow Background.
-<<<<<<< HEAD
+
   // (function() {
   //   // Settings.
   //   var settings = {
@@ -226,7 +226,7 @@
   // //       }, 750);
   // //     });
   // //   })();
-=======
+
   (function() {
     // Settings.
     var settings = {

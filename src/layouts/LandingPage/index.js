@@ -150,7 +150,6 @@ class LandingPage extends React.Component {
                 href={`${process.env.REACT_APP_SERVER_URL}/auth/login`}
                 className={classes.signUpBTN}
               >
-                id="sign_up" >
                 <Button
                   color="primary"
                   square
