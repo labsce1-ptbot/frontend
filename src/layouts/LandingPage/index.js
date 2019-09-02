@@ -146,18 +146,18 @@ class LandingPage extends React.Component {
             </p>
 
             <div className={classes.btnDiv}>
-              <a
+              {/* <a
                 href={`${process.env.REACT_APP_SERVER_URL}/auth/login`}
                 className={classes.signUpBTN}
+              > */}
+              <Button
+                color="primary"
+                square
+                className={classes.landing_page_btn}
               >
-                <Button
-                  color="primary"
-                  square
-                  className={classes.landing_page_btn}
-                >
-                  <p className={classes.joinBtn}>Sign Up</p>
-                </Button>
-              </a>
+                <p className={classes.joinBtn}>Sign Up</p>
+              </Button>
+              {/* </a> */}
             </div>
             <div className={classes.btnDiv}>
               <a
@@ -169,11 +169,20 @@ class LandingPage extends React.Component {
                 </Button>
               </a>
             </div>
-            <div className={classes.btnDiv}>
+            {/* <div className={classes.btnDiv}>
               <a href={url}>
                 <img src="https://api.slack.com/img/sign_in_with_slack.png" />
               </a>
-            </div>
+              <a href="https://slack.com/oauth/authorize?client_id=653204882022.639613575554&scope=chat:write:bot,chat:write:user,groups:history,im:read,im:write,mpim:history,mpim:read,mpim:write,im:history,groups:read,groups:write,bot,commands,channels:read,channels:history,team:read">
+                <img
+                  alt="Add to Slack"
+                  height="40"
+                  width="139"
+                  src="https://platform.slack-edge.com/img/add_to_slack.png"
+                  srcset="https://platform.slack-edge.com/img/add_to_slack.png 1x, https://platform.slack-edge.com/img/add_to_slack@2x.png 2x"
+                />
+              </a>
+            </div> */}
           </CardBody>
           <div className={classes.yes}>
             <PrivacyModal closeHandler={this.closeHandler} open={open} />
