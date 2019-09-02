@@ -15,7 +15,6 @@ import Button from "../../components/CustomButtons/Button";
 import Loader from "../../components/loader/loader.jsx";
 import "../../assets/css/calendar.css";
 
-
 const styles = {
   cardCategoryWhite: {
     "&,& a,& a:hover,& a:focus": {
@@ -173,7 +172,7 @@ class TableList extends Component {
                 margin="normal"
                 variant="outlined"
               />
-              <Button color="primary" round className={classes.saveBtn}>
+              <Button color="primary" block className={classes.saveBtn}>
                 Save
               </Button>
             </form>

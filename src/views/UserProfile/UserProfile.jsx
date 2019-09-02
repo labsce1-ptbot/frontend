@@ -12,8 +12,6 @@ import CardHeader from "../../components/Card/CardHeader.jsx";
 import CardAvatar from "../../components/Card/CardAvatar.jsx";
 import CardBody from "../../components/Card/CardBody.jsx";
 import CardFooter from "../../components/Card/CardFooter.jsx";
-
-import avatar from "../../assets/img/faces/marc.jpg";
 import Loader from "../../components/loader/loader.jsx";
 
 const url = `https://slack.com/oauth/authorize?client_id=${process.env.REACT_APP_clientId}&scope=identity.basic identity.email&redirect_uri=${process.env.REACT_APP_SLACK_REDIRECT}`;
@@ -88,8 +86,8 @@ class UserProfile extends React.Component {
   }
 
   render() {
-    const { classes, name, email } = this.props;
-    const { errors, user } = this.state;
+    const { classes } = this.props;
+    const { user } = this.state;
     console.log("state", this.state);
 
     if (user.slack === undefined) {
@@ -146,7 +144,10 @@ class UserProfile extends React.Component {
                     <h2 className={classes.cardHeaderBlack}>
                       Link Slack:
                       <a href={url}>
-                        <img src="https://api.slack.com/img/sign_in_with_slack.png" />
+                        <img
+                          src="https://api.slack.com/img/sign_in_with_slack.png"
+                          alt="slack logo"
+                        />
                       </a>
                     </h2>
                   )}
@@ -156,7 +157,7 @@ class UserProfile extends React.Component {
                       href={`${REACT_APP_SERVER_URL}/googlecal/user`}
                       className={classes.googleCalLink}
                     >
-                      <Button color="primary" square>
+                      <Button color="primary" block>
                         <p className={classes.googleCalLink}>Connect</p>
                       </Button>
                     </a>
