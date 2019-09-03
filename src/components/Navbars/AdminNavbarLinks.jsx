@@ -13,12 +13,9 @@ import Hidden from "@material-ui/core/Hidden";
 import Poppers from "@material-ui/core/Popper";
 // @material-ui/icons
 import Person from "@material-ui/icons/Person";
-import Notifications from "@material-ui/icons/Notifications";
-import Dashboard from "@material-ui/icons/Dashboard";
-import Search from "@material-ui/icons/Search";
+
 // core components
-// import CustomInput from "components/CustomInput/CustomInput.jsx";
-import CustomInput from "../CustomInput/CustomInput";
+
 // import Button from "components/CustomButtons/Button.jsx";
 import Button from "../CustomButtons/Button";
 
@@ -116,13 +113,13 @@ class HeaderLinks extends React.Component {
             onClick={this.handleToggle}
             className={classes.buttonLink}
           >
-            {/* <Notifications className={classes.icons} />
-            <span className={classes.notifications}>5</span>
+            {/* <Notifications className={classes.icons} /> */}
+            {/* <span className={classes.notifications}>5</span> */}
             <Hidden mdUp implementation="css">
               <p onClick={this.handleClick} className={classes.linkText}>
                 Notification
               </p>
-            </Hidden> */}
+            </Hidden>
           </Button>
           {/* <Poppers
             open={open}
@@ -237,12 +234,7 @@ class HeaderLinks extends React.Component {
                       >
                         Support
                       </MenuItem>
-                      {/* <MenuItem
-                        onClick={this.handleClose}
-                        className={classes.dropdownItem}
-                      >
-                        Activity
-                      </MenuItem> */}
+
                       <NavLink to="/admin/vacations">
                         <MenuItem
                           onClick={this.handleClose}

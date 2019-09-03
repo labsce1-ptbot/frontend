@@ -3,18 +3,10 @@ import "./assets/css/main.css";
 import "./assets/css/fontawesome-all.min.css";
 import CardBody from "../../components/Card/CardBody";
 import Card from "../../components/Card/Card";
-import GridContainer from "../../components/Grid/GridContainer";
-import GridItem from "../../components/Grid/GridItem.jsx";
-import slack from "../../assets/img/slack.png";
 import Button from "../../components/CustomButtons/Button";
 import withStyles from "@material-ui/core/styles/withStyles";
-import CardHeader from "../../components/Card/CardHeader";
 import "../../assets/css/calendar.css";
-import { border } from "@material-ui/system";
-import { purple } from "@material-ui/core/colors";
 import PrivacyModal from "../../components/modal/modal";
-
-const url = `${process.env.REACT_APP_SERVER_URL}/test/slack`;
 
 const styles = {
   joinBtn: {
@@ -149,11 +141,10 @@ class LandingPage extends React.Component {
               <a
                 href={`${process.env.REACT_APP_SERVER_URL}/auth/login`}
                 className={classes.signUpBTN}
-                id="sign_up"
               >
                 <Button
                   color="primary"
-                  square
+                  block
                   className={classes.landing_page_btn}
                   id="sign_up"
                 >
@@ -166,16 +157,25 @@ class LandingPage extends React.Component {
                 href={`${process.env.REACT_APP_SERVER_URL}/auth/login`}
                 className={classes.signUpBTN}
               >
-                <Button color="white" square className={classes.logIn}>
+                <Button color="white" block className={classes.logIn}>
                   <p className={classes.btnLog}>Log In</p>
                 </Button>
               </a>
             </div>
-            <div className={classes.btnDiv}>
+            {/* <div className={classes.btnDiv}>
               <a href={url}>
                 <img src="https://api.slack.com/img/sign_in_with_slack.png" />
               </a>
-            </div>
+              <a href="https://slack.com/oauth/authorize?client_id=653204882022.639613575554&scope=chat:write:bot,chat:write:user,groups:history,im:read,im:write,mpim:history,mpim:read,mpim:write,im:history,groups:read,groups:write,bot,commands,channels:read,channels:history,team:read">
+                <img
+                  alt="Add to Slack"
+                  height="40"
+                  width="139"
+                  src="https://platform.slack-edge.com/img/add_to_slack.png"
+                  srcset="https://platform.slack-edge.com/img/add_to_slack.png 1x, https://platform.slack-edge.com/img/add_to_slack@2x.png 2x"
+                />
+              </a>
+            </div> */}
           </CardBody>
           <div className={classes.yes}>
             <PrivacyModal closeHandler={this.closeHandler} open={open} />

@@ -1,20 +1,11 @@
 // @material-ui/icons
-import Dashboard from "@material-ui/icons/Dashboard";
 import Person from "@material-ui/icons/Person";
 import LibraryBooks from "@material-ui/icons/LibraryBooks";
-import DashboardPage from "./views/Dashboard/Dashboard.jsx";
 import UserProfile from "./views/UserProfile/UserProfile.jsx";
 import Vacations from "./views/Vacations/Vacations.jsx";
 import FAQ from "./views/Faq/faq";
 
 const dashboardRoutes = [
-  // {
-  //   path: "/dashboard",
-  //   name: "Dashboard",
-  //   icon: Dashboard,
-  //   component: DashboardPage,
-  //   layout: "/admin"
-  // },
   {
     path: "/user",
     name: "User Profile",

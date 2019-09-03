@@ -7,7 +7,6 @@ import {
 } from "@material-ui/pickers";
 import { createMuiTheme } from "@material-ui/core";
 import { ThemeProvider } from "@material-ui/styles";
-import { whiteColor } from "../../assets/jss/material-dashboard-react";
 import "../../assets/css/calendar.css";
 
 const styles = theme => ({

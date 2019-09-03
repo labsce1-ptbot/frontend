@@ -12,13 +12,9 @@ import CardHeader from "../../components/Card/CardHeader.jsx";
 import CardAvatar from "../../components/Card/CardAvatar.jsx";
 import CardBody from "../../components/Card/CardBody.jsx";
 import CardFooter from "../../components/Card/CardFooter.jsx";
-
-import avatar from "../../assets/img/faces/marc.jpg";
 import Loader from "../../components/loader/loader.jsx";
 
-const url = `https://slack.com/oauth/authorize?client_id=${
-  process.env.REACT_APP_clientId
-}&scope=identity.basic identity.email`;
+const url = `https://slack.com/oauth/authorize?client_id=${process.env.REACT_APP_clientId}&scope=identity.basic identity.email&redirect_uri=${process.env.REACT_APP_SLACK_REDIRECT}`;
 
 const styles = {
   cardCategoryWhite: {
@@ -90,8 +86,8 @@ class UserProfile extends React.Component {
   }
 
   render() {
-    const { classes, name, email } = this.props;
-    const { errors, user } = this.state;
+    const { classes } = this.props;
+    const { user } = this.state;
     console.log("state", this.state);
 
     if (user.slack === undefined) {
@@ -127,17 +123,6 @@ class UserProfile extends React.Component {
                         <h2 className={classes.cardHeaderBlack}>
                           Last Name: {this.state.user.last_name}
                         </h2>
-
-                        {this.state.user.slack.length > 0 ? (
-                          " Slack: Linked"
-                        ) : (
-                          <h2 className={classes.cardHeaderBlack}>
-                            Link Slack:
-                            <a href={url}>
-                              <img src="https://api.slack.com/img/sign_in_with_slack.png" />
-                            </a>
-                          </h2>
-                        )}
                       </GridItem>
                     </GridContainer>
                   </CardBody>
@@ -153,18 +138,31 @@ class UserProfile extends React.Component {
                   </a>
                 </CardAvatar>
                 <CardBody profile>
-                  <h2 className={classes.cardHeaderBlack}>Google Calendar:</h2>
+                  {this.state.user.slack.length > 0 ? (
+                    " Slack: Linked"
+                  ) : (
+                    <h2 className={classes.cardHeaderBlack}>
+                      Link Slack:
+                      <a href={url}>
+                        <img
+                          src="https://api.slack.com/img/sign_in_with_slack.png"
+                          alt="slack logo"
+                        />
+                      </a>
+                    </h2>
+                  )}
+                  <br />
                   {user.google_access_token === null ? (
                     <a
                       href={`${REACT_APP_SERVER_URL}/googlecal/user`}
                       className={classes.googleCalLink}
                     >
-                      <Button color="primary" round>
+                      <Button color="primary" block>
                         <p className={classes.googleCalLink}>Connect</p>
                       </Button>
                     </a>
                   ) : (
-                    "Linked"
+                    "Google Calendar: Linked"
                   )}
                 </CardBody>
               </Card>

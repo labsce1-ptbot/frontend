@@ -12,11 +12,10 @@ import tableStyle from "../../assets/jss/material-dashboard-react/components/tab
 import moment from "moment";
 import { Icon, TableFooter, TablePagination } from "@material-ui/core";
 
-
 class CustomTable extends Component {
   state = {
-    page: null,
-    rowsPerPage: null
+    page: 0,
+    rowsPerPage: 5
   };
 
   componentDidMount() {
@@ -78,64 +77,68 @@ class CustomTable extends Component {
               </TableRow>
             </TableHead>
           ) : null}
-          {this.props.tableData.length === 0 ? <h1 className={classes.loaderHeader}>No Vacations Scheduled</h1> : (
-          <TableBody>
-            {tableData
-              .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-              .map(prop => {
-                return (
-                  <TableRow key={prop._id}>
-                    {/* {prop.map((prop, key) => {
+          {this.props.tableData.length === 0 ? (
+            <h1 className={classes.loaderHeader}>No Vacations Scheduled</h1>
+          ) : (
+            <TableBody>
+              {tableData
+                .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                .map(prop => {
+                  return (
+                    <TableRow key={prop._id}>
+                      {/* {prop.map((prop, key) => {
                   return ( */}
-                    <TableCell className={classes.tableCell}>
-                      {moment(prop.startDate).format("MMMM Do, YYYY")}
-                    </TableCell>
-                    <TableCell className={classes.tableCell}>
-                      {moment(prop.endDate).format("MMMM Do, YYYY")}
-                    </TableCell>
-                    <TableCell className={classes.tableCell}>
-                      {prop.message.length > 0
-                        ? prop.message[0].custom_message
-                        : "No Saved Message"}
-                    </TableCell>
-                    <TableCell className={classes.tableCell}>
-                      <Icon
-                        id="deleteVacay"
-                        className={classes.deleteVacay}
-                        onClick={() => this.removeVacation(prop._id)}
-                      >
-                        delete_outlined
-                      </Icon>
-                    </TableCell>
-                    {/* ); */}
-                    {/* })} */}
-                  </TableRow>
-                );
-              })}
-              </TableBody>
+                      <TableCell className={classes.tableCell}>
+                        {moment(prop.startDate).format("MMMM Do, YYYY")}
+                      </TableCell>
+                      <TableCell className={classes.tableCell}>
+                        {moment(prop.endDate).format("MMMM Do, YYYY")}
+                      </TableCell>
+                      <TableCell className={classes.tableCell}>
+                        {prop.message.length > 0
+                          ? prop.message[0].custom_message
+                          : "No Saved Message"}
+                      </TableCell>
+                      <TableCell className={classes.tableCell}>
+                        <Icon
+                          id="deleteVacay"
+                          className={classes.deleteVacay}
+                          onClick={() => this.removeVacation(prop._id)}
+                        >
+                          delete_outlined
+                        </Icon>
+                      </TableCell>
+                      {/* ); */}
+                      {/* })} */}
+                    </TableRow>
+                  );
+                })}
+            </TableBody>
           )}
-          {this.props.tableData.length > 0 ? <TableFooter className={classes.tableFooter}>
-            <TableRow>
-              <TablePagination
-                rowsPerPageOptions={[5, 10, 25]}
-                colSpan={5}
-                count={tableData.length}
-                rowsPerPage={rowsPerPage}
-                page={this.state.page}
-                SelectProps={{
-                  inputProps: { "aria-label": "Rows Per Page" }
-                }}
-                onChangePage={this.handleChangePage}
-                nextIconButtonProps={{
-                  "aria-label": "Next Page"
-                }}
-                onChangeRowsPerPage={this.handleChangeRows}
-                backIconButtonProps={{
-                  "aria-label": "Previous Page"
-                }}
-              />
-            </TableRow>
-          </TableFooter> : null}
+          {this.props.tableData.length > 0 ? (
+            <TableFooter className={classes.tableFooter}>
+              <TableRow>
+                <TablePagination
+                  rowsPerPageOptions={[5, 10, 25]}
+                  colSpan={5}
+                  count={tableData.length}
+                  rowsPerPage={rowsPerPage}
+                  page={this.state.page}
+                  SelectProps={{
+                    inputProps: { "aria-label": "Rows Per Page" }
+                  }}
+                  onChangePage={this.handleChangePage}
+                  nextIconButtonProps={{
+                    "aria-label": "Next Page"
+                  }}
+                  onChangeRowsPerPage={this.handleChangeRows}
+                  backIconButtonProps={{
+                    "aria-label": "Previous Page"
+                  }}
+                />
+              </TableRow>
+            </TableFooter>
+          ) : null}
         </Table>
       </div>
     );

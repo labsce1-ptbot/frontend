@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 // import { createBrowserHistory } from "history";
-import { Router, Route, Switch, Redirect } from "react-router-dom";
+import { Route, Switch, Redirect } from "react-router-dom";
 // import axios from "axios";
 
 // core components
@@ -24,15 +24,13 @@ class App extends Component {
 
   // }
 
-
-
   render() {
     return (
       <Switch>
         {/* <Route path="/auth" component={Auth} /> */}
         <Route path="/admin" component={Admin} />
         <Route path="/" component={LandingPage} />
-        <Redirect from="/" to="/admin/dashboard" />
+        <Redirect from="/" to="/admin/user" />
         {/* <PrivateRoute path="/" component={Admin} /> */}
       </Switch>
     );
