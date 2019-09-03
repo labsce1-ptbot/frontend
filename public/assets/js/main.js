@@ -101,6 +101,7 @@
 
   // Slideshow Background.
 
+
   // (function() {
   //   // Settings.
   //   var settings = {
@@ -226,6 +227,7 @@
   // //       }, 750);
   // //     });
   // //   })();
+
 
   (function() {
     // Settings.
