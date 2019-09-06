@@ -48,7 +48,7 @@ class HeaderLinks extends React.Component {
   };
 
   logout = async () => {
-    const { history } = this.props;
+    const { history, redirectHome } = this.props;
     let logoutRequest;
     try {
       logoutRequest = await axios.post(
@@ -62,12 +62,14 @@ class HeaderLinks extends React.Component {
     } catch ({ request }) {
       logoutRequest = request;
     }
+
     if (logoutRequest.status === 301) {
-      history.push("/");
+      redirectHome();
     }
   };
 
   render() {
+    console.log("props shit", this.props.history);
     const { classes } = this.props;
     const { open, profilePopupOpen } = this.state;
     return (
