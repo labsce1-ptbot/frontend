@@ -8,7 +8,7 @@ import Admin from "./layouts/Admin.jsx";
 // import Auth from "./layouts/Auth.jsx";
 // import RTL from "./layouts/RTL.jsx";
 import LandingPage from "./layouts/LandingPage/index";
-import PrivacyPolicy from "./components/PrivacyPolicy/privacyPolicy.jsx";
+import PrivacyContainer from "./components/PrivacyPolicy/privcayContainer.jsx";
 
 // import "./assets/css/material-dashboard-react.css?v=1.6.0";
 
@@ -31,7 +31,7 @@ class App extends Component {
         {/* <Route path="/auth" component={Auth} /> */}
         <Route path="/admin" component={Admin} />
         <Route exact path="/" component={LandingPage} />
-        <Route path="/privacy-policy" component={PrivacyPolicy} />
+        <Route path="/privacy-policy" component={PrivacyContainer} />
         <Redirect from="/" to="/admin/user" />
         {/* <PrivateRoute path="/" component={Admin} /> */}
       </Switch>
