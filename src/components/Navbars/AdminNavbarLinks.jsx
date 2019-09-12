@@ -48,7 +48,7 @@ class HeaderLinks extends React.Component {
   };
 
   logout = async () => {
-    const { history, redirectHome } = this.props;
+    const { redirectHome } = this.props;
     let logoutRequest;
     try {
       logoutRequest = await axios.post(
