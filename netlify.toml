@@ -15,6 +15,5 @@
 [[redirects]]
 
  from="/google/calendar/auth"
-  to = "https://pt-b0t.herokuapp.com/googlecal/code"
-  force= true
+  to = "SERVER_REDIRECT_GOOGLE"
   status = 200
