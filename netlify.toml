@@ -7,14 +7,15 @@
 
 [[redirects]]
 
-  from = "/*"
-  to = "/index.html"
-  status = 200
-
-
-[[redirects]]
-
  from="/google/calendar/auth"
   to = "https://pt-b0t.herokuapp.com/googlecal/code"
   status = 200
   force = true
+
+
+[[redirects]]
+
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
