@@ -9,3 +9,6 @@
   from = "/*"
   to = "/index.html"
   status = 200
+
+  from="/google/calendar/auth"
+  to = "https://pt-b0t.herokuapp.com/googlecal/code"
