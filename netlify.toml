@@ -6,11 +6,14 @@
 #    that is where we will look for package.json/.nvmrc/etc not repo root!
 
 [[redirects]]
+
+ from="/google/calendar/auth"
+  to = "https://pt-b0t.herokuapp.com/googlecal/code"
+  force= true
+  status = 200
+
+
   from = "/*"
   to = "/index.html"
   status = 200
 
-  from="/google/calendar/auth"
-  to = "https://pt-b0t.herokuapp.com/googlecal/code"
-  force= true
-  status = 200
