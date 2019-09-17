@@ -6,6 +6,14 @@
 #    that is where we will look for package.json/.nvmrc/etc not repo root!
 
 [[redirects]]
+
   from = "/*"
   to = "/index.html"
+  status = 200
+
+
+[[redirects]]
+
+ from="/google/calendar/auth"
+  to = "SERVER_REDIRECT_GOOGLE"
   status = 200
